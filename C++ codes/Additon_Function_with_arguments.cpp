@@ -1,7 +1,7 @@
 # include<iostream>
 using namespace std;
     
-/*program for function with arguments
+/*program for function with  arguments
 
 */
 float add(float x,float y)
