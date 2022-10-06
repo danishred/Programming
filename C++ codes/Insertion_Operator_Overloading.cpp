@@ -14,7 +14,7 @@ public:
 		img = i;
 	}
 	void display()
-	{
+	{ 
 		cout << real << "+i" << img << endl;
 	}
 
