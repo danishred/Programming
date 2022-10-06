@@ -33,5 +33,5 @@ int main()
 		cout << str << "\n";
 		cout << "Not a Palindrome" << endl;
 	}
-	return 0;
+	return 0; 
 } 
