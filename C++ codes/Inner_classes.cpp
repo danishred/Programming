@@ -15,7 +15,7 @@ public:
 // private:
     class inner
     {
-    public:
+    public: 
         void display()
         {
             cout << "display of inner" << endl;
