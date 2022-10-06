@@ -34,4 +34,4 @@ int main()
 		cout << "Not a Palindrome" << endl;
 	}
 	return 0;
-}
+} 
