@@ -17,7 +17,7 @@ int main()
 		cout<<"maximum is"<<x;
 	}
 	else
-	{
+	{ 
 		cout<<"maximum is"<<y;
 	}
 	return 0;
