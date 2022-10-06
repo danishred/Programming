@@ -11,6 +11,6 @@ int main()
         x++;
         cout<<(int)x;
     return 0;
-    }
+    } 
 
 
