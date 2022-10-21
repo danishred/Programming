@@ -1,7 +1,9 @@
-// Collatz Conjecture
+// Collatz Conjecture - It states that it is always possible to  
+// get back to '1'
 #include <iostream>
 using namespace std;
 
+// Function Prototype
 int collatz(int n);
 
 int main()
@@ -22,7 +24,6 @@ int collatz(int n)
     else if (n % 2 == 0)
     {
         count=collatz(n / 2);
-        
     }
     else
     {
