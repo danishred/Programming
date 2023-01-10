@@ -23,11 +23,13 @@ int collatz(int n)
     }
     else if (n % 2 == 0)
     {
-        count=collatz(n / 2); //or return 1 + collatz(n/2);
+        count=collatz(n / 2); 
+        //or return 1 + collatz(n/2);
     }
     else
     {
-        count=collatz(3 * n + 1); //or return 1 + collatz(3*n+1);
+        count=collatz(3 * n + 1); 
+        //or return 1 + collatz(3*n+1);
     }
     // or remove both of the lines below
     count++;
