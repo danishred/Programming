@@ -1,32 +1,23 @@
-// Collatz Conjecture - It states that it is always possible to
-// get back to '1'
-#include <iostream>
-using namespace std;
-
-// Function Prototype
-int collatz(int n);
+//
+#include <stdio.h>
+#include <math.h>
 
 int main()
 {
-    int n = 0;
-    cin >> n;
-    cout << collatz(n);
-    return 0;
-}
+    typedef struct
+    {
+        int votes;
+    } candidate;
 
-int collatz(int n)
-{
-    int count = 0;
-    if (n == 1)
-    {
-        return (n - 1);
-    }
-    else if (n % 2 == 0)
-    {
-        return 1 + collatz(n / 2);
-    }
-    else
-    {
-        return 1 + collatz(3 * n + 1);
-    }
+    candidate a, b, temp;
+
+    a.votes = 2;
+    b.votes = 5;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("%d\n", a.votes);
+    printf("%d", b.votes);
 }

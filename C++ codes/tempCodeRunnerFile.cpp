@@ -1,1 +1,2 @@
-flag++;
+a=b;
+    b=temp;
