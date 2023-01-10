@@ -1,33 +1,20 @@
-// Collatz Conjecture
+//
 #include <iostream>
 using namespace std;
 
-int collatz(int n);
-
 int main()
 {
-    int n = 0;
-    cin >> n;
-    cout<<collatz(n);
-    return 0;
-}
-
-int collatz(int n)
-{
-    int count=0;
-    if (n == 1)
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
     {
-        return (n-1);
+      if (i == 0 && j == 0)
+      {
+        cout << "hello";
+       
+      }
+      // cout << "hey";
     }
-    else if (n % 2 == 0)
-    {
-        count=collatz(n / 2);
-        
-    }
-    else
-    {
-        count=collatz(3 * n + 1);
-    }
-    count++;
-    return count;
+  }
+  return 0;
 }
