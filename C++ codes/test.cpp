@@ -1,144 +1,111 @@
-// Implements a dictionary's functionality
+// Simulate genetic inheritance of blood type
 
-#include <ctype.h>
-#include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <strings.h>
-#include <string.h>
-#include "dictionary.h"
+#include <stdlib.h>
+#include <time.h>
 
-// Represents a node in a hash table
-typedef struct node
+// Each person has two parents and two alleles
+typedef struct person
 {
-    char word[LENGTH + 1];
-    struct node *next;
-} node;
+    struct person *parents[2];
+    char alleles[2];
+} person;
 
-// Declaration of free_node func.
-void free_node(node *n);
+const int GENERATIONS = 3;
+const int INDENT_LENGTH = 4;
 
-// TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+person *create_family(int generations);
+void print_family(person *p, int generation);
+void free_family(person *p);
+char random_allele();
 
-// Initializing variable for keeping track of dictionary size
-unsigned int dict_size = 0;
-
-// Initializing variable for checking for word
-unsigned int test = 0;
-
-// Hash table
-node *table[N] = {NULL};
-
-// Creating a node to allocate to
-node *n = NULL;
-
-// Returns true if word is in dictionary, else false
-bool check(const char *word)
+int main(void)
 {
-    // Hashing word to obtain hash value
-    int hash_key = hash(word);
+    // Seed random number generator
+    srand(time(0));
 
-    // Setting cursor variable
-    node *cursor = table[hash_key];
+    // Create a new family with three generations
+    person *p = create_family(GENERATIONS);
 
-    // Checking linked list in hash table
-    do
+    // Print family tree of blood types
+    print_family(p, 0);
+
+    // Free memory
+    free_family(p);
+}
+
+// Create a new individual with `generations`
+person *create_family(int generations)
+{
+    // TODO: Allocate memory for new person
+
+    person *p = malloc(sizeof(person));
+
+    // If there are still generations left to create
+    if (generations > 1)
     {
-        test = (strcasecmp(cursor->word, word));
-        cursor = cursor->next;
-    } while (test != 0 || cursor != NULL);
+        // Create two new parents for current person by recursively calling create_family
+        person *parent0 = create_family(generations - 1);
+        person *parent1 = create_family(generations - 1);
 
-    // If word is found
-    if (test == 0)
-    {
-        return true;
+        // TODO: Set parent pointers for current person
+        p->parents[0] = parent0;
+        p->parents[1] = parent1;
+
+        // TODO: Randomly assign current person's alleles based on the alleles of their parents
+        p->alleles[0] = parent0->alleles[rand() % 2];
+        p->alleles[1] = parent1->alleles[rand() % 2];
     }
 
-    // If word is not found
+    // If there are no generations left to create
     else
-        return false;
-}
-
-// Hashes word to a number
-unsigned int hash(const char *word)
-{
-    // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
-}
-
-// Loads dictionary into memory, returning true if successful, else false
-bool load(const char *dictionary)
-{
-    // Openning dictionary
-    FILE *file = fopen(dictionary, "r");
-
-    // Instructions if dictionary is not read
-    if (file == NULL)
     {
-        printf("Dictionay cannot be accessed\n");
-        printf("Usage: speller [dictionary] text");
-        return false;
+        // TODO: Set parent pointers to NULL
+        p->parents[0] = NULL; // assigning to address
+        p->parents[1] = NULL;// assigning to address
+
+        // TODO: Randomly assign alleles
+        p->alleles[0] = random_allele();// assigning to address
+        p->alleles[1] = random_allele();// assigning to address
     }
 
-    // Declaring variable for storing word
-    char dict_word[LENGTH + 1];
+    // TODO: Return newly created person
+    return p;
+    // return NULL;
+}
 
-    // Loop for reading string from the file and loading
-    while (fscanf(file, "%s", dict_word) != EOF)
+// Free `p` and all ancestors of `p`.
+void free_family(person *p)
+{
+    // TODO: Handle base case.
+    if (p == NULL)
     {
-        // Keeping track of dictionary size
-        dict_size++;
-
-        // Allocating memory to node
-        n = malloc(sizeof(node));
-
-        // If memory cannot be allocated
-        if (n == NULL)
-        {
-            printf("Failed to allocate mem. for load func.\n");
-            return false;
-        }
-
-        // Copying word from file into node
-        strcpy(n->word, dict_word);
-
-        // Hashing and storing key
-        unsigned int hash_key = hash(n->word);
-
-        // prepending node to table
-        n->next = table[hash_key];
-        table[hash_key] = n;
+        return;
     }
 
-    return true;
+    // TODO: Free parents recursively
+    free_family(p->parents[0]);
+    free_family(p->parents[1]);
+
+    // TODO: Free child
+    free(p);
+    return;
 }
 
-// Returns number of words in dictionary if loaded, else 0 if not yet loaded
-unsigned int size(void)
+int main()
 {
-    // TODO
-    return dict_size;
-}
-
-// Unloads dictionary from memory, returning true if successful, else false
-bool unload(void)
-{
-    // Creating cursor node
-    node *cursor = NULL;
-    node *tmp = NULL;
-
-    for (int i = 0; i < N; i++)
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
     {
-        // Choosing linked list
-        cursor = table[i];
-        // Freeing selected linked list's nodes
-        while (cursor != NULL)
-        {
-            tmp = cursor;
-            cursor = cursor->next;
-            free(tmp);
-        }
+      if (i == 0 && j == 0)
+      {
+        cout << "hello"5
+       
+      }
+      // cout << "hey";
     }
-    return true;
-}
+  }
+  return 0;
+you are me ar
