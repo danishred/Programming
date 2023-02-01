@@ -1,34 +1,37 @@
-// Factorial Iterative
-
-// Theta (n)
-// Auxilary space requirement big O (1)
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
-int factzero(int n)
+
+int GCD(int n1, int n2)
 {
-    int fact = 1;
-    int count = 0;
+    int mult = n1 * n2;
+    int temp = 0;
+    int i = 0;
+    int mini = min(n1, n2);
+    int ans = 0;
 
-    for (int i = 0; i < n; i++
+    while (i != mini/2)
     {
-        fact = fact * (i + 1);
+        temp = mult;
+        i++;
+        temp = temp % (i * i);
+        if (temp == 0)
+        {
+            ans = i;
+        }
     }
 
-    while (fact % 10 == 0)
-    {
-        count++;
-        fact /= 10;
-    }
+    
 
-    return (count);
+    return ans;
 }
 
 int main()
 {
-    int n;
-    cin >> n;
-    cout << factzero(n);
+    int n1, n2;
+    cout << "Enter the two no:\n";
+    cin >> n1 >> n2;
+    cout << GCD(n1, n2);
     return 0;
 }
-
-TC
