@@ -25,7 +25,7 @@ bool isPrimen(int n)
 
     return true;
 }
-// Time Complexity: O(sqrt(nm))
+// Time Complexity: O(sqrt(n))
 // Auxiliary Space: O(1)
 
 // Sir's effiecient
