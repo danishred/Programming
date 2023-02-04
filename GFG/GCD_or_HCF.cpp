@@ -46,7 +46,6 @@ int gcdEuOp(int a, int b)
     else
         return gcdEuOp(b, a % b);
 }
-
 // Time Complexity: O(log(min(a,b))
 // Auxiliary Space: O(log(min(a,b))
 
@@ -58,5 +57,7 @@ int main()
     cout << "Basic: " << GCD(n1, n2);
     cout << "\n"
          << "Euclidean: " << gcdEu(n1, n2);
+    cout << "\n"
+         << "Optimised: " << gcdEuOp(n1, n2);
     return 0;
 }

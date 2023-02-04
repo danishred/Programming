@@ -25,7 +25,7 @@ bool isPrimen(int n)
 
     return true;
 }
-// Time Complexity: O(mini)
+// Time Complexity: O(sqrt(nm))
 // Auxiliary Space: O(1)
 
 // Sir's effiecient
@@ -42,8 +42,8 @@ bool isPrime(int n)
 
     return true;
 }
-// Time Complexity: O(n); isme worst case hai n aur mere mein every case so this is better
-// Auxiliary Space: O(1); this too slightly is better
+// Time Complexity: O(sqrt(n));
+// Auxiliary Space: O(1);
 
 // Mine
 bool Prime(int a)
