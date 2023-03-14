@@ -5,14 +5,27 @@ using namespace std;
 
 int main()
 {
-    int a = 10, b = 3, c;
+     int Array[3][3];
 
-    float d;
+     for (int i = 0; i < 3; i++)
+     {
+          for (int j = 0; j < 3; j++)
+          {
+               std::cin>>Array[i][j];
+          }
+          
+     }
+     
+     for (int i = 0; i < 3; i++)
+     {
+          for (int j = 0; j < 3; j++)
+          {
+               std::cout<<Array[i][j];
+          }
+          cout<<endl;
+     }
 
-    c = a % b;
 
-    d = a / b;
-
-    printf(" Value of c and d are %d and %f respectively", c, d);
+     
     return 0;
 }
