@@ -5,14 +5,15 @@ using namespace std;
 
 int main()
 {
-    int a = 10, b = 3, c;
+    int a = 0, i = 0, b;
+    {
+        for (i = 0; i < 5; i += 0.5)
+        {
+            a++;
+            continue;
+        }
+        printf("%d", a);
 
-    float d;
-
-    c = a % b;
-
-    d = a / b;
-
-    printf(" Value of c and d are %d and %f respectively", c, d);
-    return 0;
+        return 0;
+    }
 }

@@ -1,19 +1,28 @@
-#include<iostream>
-using namespace std;
-    
+#include <stdio.h>
 int main()
 {
-	string str="WeLcOMe";
-	    
-	for(int i=0;str[i]!='\0';i++)
+	int upper = 0, lower = 0;
+	char ch[100];
+	scanf(" %[^\n]s", ch);
+
+	for (int i = 0; i < 100; i++)
 	{
-		if(str[i]>=65 && str[i]<=96) //Upper case letter range
+		if (ch[i] != '.')
 		{
-		    str[i]=str[i]+32;
+			if (ch[i] >= 65 && ch[i] <= 90)
+			{
+				upper++;
+			}
+
+			if ((ch[i]) >= 97 && ch[i] <= 122)
+			{
+				lower++;
+			}
 		}
 	}
-	cout<<str<<endl;
-	    
-	return 0;
-	    
+
+	printf("Uppercase Letters : %d\n", upper); /*prints number of uppercase letters */
+	printf("Lowercase Letters : %d\n", lower); /*prints number of lowercase letters */
+
+	return (0);
 }

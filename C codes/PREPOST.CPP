@@ -5,7 +5,7 @@ int main()
 int i=5;
 
 printf("Preincrement\n");
-while(++i <10)    //First 'i' becomes 6 form 5 then checked for condition <10 and then program moves to next line and prints.
+while(++i <10)    //First 'i' becomes 6 fromm 5 then checked for condition <10 and then program moves to next line and prints.
 printf("\n%d",i);
 
 printf("\n\nPost increment\n");
