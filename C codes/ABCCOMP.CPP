@@ -6,7 +6,10 @@ int a,b,c;
 printf("Enter 3 numbers to check whether they are equal or not\n\n");
 scanf("%d%d%d",&a,&b,&c);
 
-{if (a>b || a>c)
+{if (a>b || a>c) 
+
+
+
 
    {if (a>b && a<c)
     printf("\na is greater than b and smaller than c");
