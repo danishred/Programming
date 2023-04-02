@@ -8,9 +8,6 @@ scanf("%d%d%d",&a,&b,&c);
 
 {if (a>b || a>c) 
 
-
-
-
    {if (a>b && a<c)
     printf("\na is greater than b and smaller than c");
     else if (a<b && a>c)
