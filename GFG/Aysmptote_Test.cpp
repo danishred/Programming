@@ -11,6 +11,7 @@ int fact_n(int n)
     for (int i = 1; i <= n; i++)
         sum += i;
     return sum;
+    
 }
 
 // BigO=c
