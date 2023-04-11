@@ -9,6 +9,7 @@ struct product
 }x[10];
 //---------------
 int main()
+
 {
 int i;
 int n;
