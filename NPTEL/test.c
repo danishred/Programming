@@ -1,42 +1,42 @@
 #include <stdio.h>
-int prime(int num); // Function to find whether the number is prime or not.
 int main()
 {
-    int lines;
-    scanf("%d", &lines); // Number of lines of the triangle is taken from test data.
-    int k = 2;
-    // use the printf statement as printf("%d\t", variable_name); to print the elements in a row
+    int array[100], search, n, count = 0;
+    //"search" is the key element to search and 'n' is the total number of element of the array
+    // "count" is to store total number of elements
 
-    for (int i = 1; i <= lines; i++)
+    scanf("%d", &n); // Number of elements is taken from test case
+
+    int c;
+    for (c = 0; c < n; c++)
+        scanf("%d", &array[c]);
+
+    scanf("%d", &search); // The element to search is taken from test case
+
+    /* Use the printf statements as below:
+    "%d is present at location %d.\n"  for each locations
+    "%d is not present in the array." if the element is not found in the list
+    "%d is present %d times in the array."
+    */
+
+    for (c = 0; c < n; c++)
     {
-        for (int j = 0; j < i; j++)
+        if (array[c] == search)
         {
-            while (!prime(k))
-            {
-                k++;
-            }
-            printf("%d ", k);
-            k++;
-        }
-        printf("\n");
-    }
-}
-
-int prime(int num)
-{
-
-    if (num == 2)
-    {
-        return 1;
-    }
-
-    for (int i = 2; i <= num / 2; i++)
-    {
-        if (num % i == 0)
-        {
-            return 0;
+            printf("%d is present at location %d.\n", search, c);
+            count++;
         }
     }
 
-    return 1;
+    if (count > 0)
+    {
+        printf("%d is present %d times in the array.", search, count);
+    }
+
+    else
+    {
+        printf("%d is not present in the array.", search);
+    }
+
+    return 0;
 }
