@@ -1,22 +1,42 @@
 #include <stdio.h>
-long power(int, int);
+int prime(int num); // Function to find whether the number is prime or not.
 int main()
 {
-    int pow, num;
-    long result;
+    int lines;
+    scanf("%d", &lines); // Number of lines of the triangle is taken from test data.
+    int k = 2;
+    // use the printf statement as printf("%d\t", variable_name); to print the elements in a row
 
-    scanf("%d", &num); // The number taken as input from test case data
-
-    scanf("%d", &pow); // The power is taken from the test case
-    result = power(num, pow);
-    printf("%d^%d is %ld", num, pow, result);
-    return 0;
-}
-long power(int num, int pow)
-{
-    if (pow)
+    for (int i = 1; i <= lines; i++)
     {
-        return (num * power(num, pow - 1));
+        for (int j = 0; j < i; j++)
+        {
+            while (!prime(k))
+            {
+                k++;
+            }
+            printf("%d ", k);
+            k++;
+        }
+        printf("\n");
     }
+}
+
+int prime(int num)
+{
+
+    if (num == 2)
+    {
+        return 1;
+    }
+
+    for (int i = 2; i <= num / 2; i++)
+    {
+        if (num % i == 0)
+        {
+            return 0;
+        }
+    }
+
     return 1;
 }
