@@ -1,53 +1,42 @@
 #include <stdio.h>
-void merge(int a[], int m, int b[], int n, int sorted[]);
 int main()
 {
-    int a[100], b[100], m, n, c, sorted[200];
+    int array[100], search, n, count = 0;
+    //"search" is the key element to search and 'n' is the total number of element of the array
+    // "count" is to store total number of elements
 
-    /* a[100] and b[100] are the two given arrays and m and n are the their respective sizes. c is a counter
-    and sorted[200] is the final sorted array */
+    scanf("%d", &n); // Number of elements is taken from test case
 
-    scanf("%d", &m); // Number of elements in the first array
+    int c;
+    for (c = 0; c < n; c++)
+        scanf("%d", &array[c]);
 
-    for (c = 0; c < m; c++)
-    {
-        scanf("%d", &a[c]); // Elements of first array is read
-    }
+    scanf("%d", &search); // The element to search is taken from test case
 
-    scanf("%d", &n); // Number of elements in second array
+    /* Use the printf statements as below:
+    "%d is present at location %d.\n"  for each locations
+    "%d is not present in the array." if the element is not found in the list
+    "%d is present %d times in the array."
+    */
 
     for (c = 0; c < n; c++)
     {
-        scanf("%d", &b[c]); // Elements of second array is read
+        if (array[c] == search)
+        {
+            printf("%d is present at location %d.\n", search, c);
+            count++;
+        }
     }
-    merge(a, m, b, n, sorted);
 
-    // The merged function is called where the two arrays are merged and sorted.
-
-    printf("Sorted array:\n");
-
-    for (c = 0; c < m + n; c++)
+    if (count > 0)
     {
-        printf("%d\n", sorted[c]);
+        printf("%d is present %d times in the array.", search, count);
+    }
+
+    else
+    {
+        printf("%d is not present in the array.", search);
     }
 
     return 0;
-}
-
-void merge(int a[], int m, int b[], int n, int sorted[])
-{
-    int i = 0, j = 0;
-    for (int c = 0; c < m + n; c++)
-    {
-        if (a[i] <= b[j])
-        {
-            sorted[c] = a[i];
-            i++;
-        }
-        else
-        {
-            sorted[c] = b[j];
-            j++;
-        }
-    }
 }
