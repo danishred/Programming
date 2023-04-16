@@ -1,42 +1,48 @@
 #include <stdio.h>
 int main()
 {
-    int array[100], search, n, count = 0;
-    //"search" is the key element to search and 'n' is the total number of element of the array
-    // "count" is to store total number of elements
+    int c, n, search,
+        array[100];
+    scanf("%d", &n); // number of elements in the array
 
-    scanf("%d", &n); // Number of elements is taken from test case
-
-    int c;
     for (c = 0; c < n; c++)
         scanf("%d", &array[c]);
 
-    scanf("%d", &search); // The element to search is taken from test case
+    scanf("%d", &search); // The element to search is read from test case.
 
     /* Use the printf statements as below:
-    "%d is present at location %d.\n"  for each locations
-    "%d is not present in the array." if the element is not found in the list
-    "%d is present %d times in the array."
+     printf("%d found at location %d.\n", search, variable_name);
+     printf("Not found! %d isn't present in the list.\n", search);
     */
+    int l = array[0];
+    int r = array[n - 1];
+    int mid = 0;
 
-    for (c = 0; c < n; c++)
+    while (1)
     {
-        if (array[c] == search)
+
+        mid = (l + r) / 2;
+
+        if (search == array[mid])
         {
-            printf("%d is present at location %d.\n", search, c);
-            count++;
+            printf("%d found at location %d.\n", search , mid);
+            break;
+        }
+
+        if (search < array[mid])
+        {
+            r = mid - 1;
+        }
+
+        if (search > array[mid])
+        {
+            l = mid + 1;
+        }
+
+        if (l >= r)
+        {
+            printf("Not found! %d isn't present in the list.\n", search);
+            break;
         }
     }
-
-    if (count > 0)
-    {
-        printf("%d is present %d times in the array.", search, count);
-    }
-
-    else
-    {
-        printf("%d is not present in the array.", search);
-    }
-
-    return 0;
 }
