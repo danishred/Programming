@@ -14,35 +14,36 @@ int main()
      printf("%d found at location %d.\n", search, variable_name);
      printf("Not found! %d isn't present in the list.\n", search);
     */
-    int l = array[0];
-    int r = array[n - 1];
+    int first = 0;
+    int last = n - 1;
     int mid = 0;
 
     while (1)
     {
 
-        mid = (l + r) / 2;
+        mid = (first + last) / 2;
 
         if (search == array[mid])
         {
-            printf("%d found at location %d.\n", search , mid);
+            printf("%d found at location %d.\n", search , mid+1);
             break;
         }
 
         if (search < array[mid])
         {
-            r = mid - 1;
+            last = mid - 1;
         }
 
         if (search > array[mid])
         {
-            l = mid + 1;
+            first = mid + 1;
         }
 
-        if (l >= r)
+        if (first > last)
         {
-            printf("Not found! %d isn't present in the list.\n", search);
+            printf("Not found! %d isn't present in the 'ist.\n", search);
             break;
         }
     }
+    return 0;
 }
