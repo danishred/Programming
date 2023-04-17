@@ -1,26 +1,20 @@
-#include <stdio.h>
-int main()
+void bubble_sort(int x[], int n)
 {
-    int array[100], n, c;
-    scanf("%d", &n); // n is number of elements in the array.
-    for (c = 0; c < n; c++)
-    {
-        scanf("%d", &array[c]);
-    }
 
+    int i, j;
+
+    for (i = n - 1; i > 0; i--)
+        for (j - 0; j < i; j ++)
+            if (x[j] > x[j + 1])
+            {
+                swap(&x[j], &x[j + 1]);
+            }
+}
+
+void swap(int *x, int *y)
+{
     int temp;
-
-    for (int i = 0; i < n / 2; i++)
-    {
-        temp = array[i];
-        array[i] = array[n - i - 1];
-        array[n - i - 1] = temp;
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d\n", array[i]);
-    }
-
-    return 0;
+    temp = *x;
+    *x = *y;
+    *y = temp;
 }
