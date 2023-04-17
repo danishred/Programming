@@ -1,20 +1,42 @@
-void bubble_sort(int x[], int n)
+#include <stdio.h>
+#include <string.h>
+
+int main()
 {
+	char str[5][50], temp[50];
+	printf("Enter 5 words: ");
+	// Getting strings input
+	for (int i = 0; i < 5; ++i)
+	{
+		fgets(str[i], sizeof(str[i]), stdin);
+	}
 
-    int i, j;
+	// storing strings in the lexicographical order
+	for (int i = 0; i < 5; ++i)
+	{
+		for (int j = i + 1; j < 5; ++j)
+		{
 
-    for (i = n - 1; i > 0; i--)
-        for (j - 0; j < i; j ++)
-            if (x[j] > x[j + 1])
-            {
-                swap(&x[j], &x[j + 1]);
-            }
+			// swapping strings if they are not in the lexicographical order
+			if (strcmp(str[i], str[j]) > 0)
+			{
+				strcpy(temp, str[i]);
+				strcpy(str[i], str[j]);
+				strcpy(str[j], temp);
+			}
+		}
+	}
+
+	printf("\nIn the lexicographical order: \n");
+	for (int i = 0; i < 5; ++i)
+	{
+		fputs(str[i], stdout);
+	}
+	return 0;
 }
 
-void swap(int *x, int *y)
-{
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
-}
+/*R programming
+JavaScript
+Java
+C programming
+C++ programming*/
