@@ -1,51 +1,41 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
-/*strcmp() function returns
-
-an int less than 0 if s1 comes before s2,
-0 if s1 is the same as s2,
-an int greater than 0 if s1 comes after s2.
-The strings are compared using “ASCIIbetical” or "dictionary"order, 
-based on the ASCII values of their characters.
-For instance, "AAA" would come before "BBB", and "AAA" would also come before "aaa".*/
-
-int main()
+float fun(float x)
 {
-	char str[5][50], temp[50];
-	printf("Enter 5 words: ");
-	// Getting strings input
-	for (int i = 0; i < 5; ++i)
-	{
-		fgets(str[i], sizeof(str[i]), stdin);
-	}
-
-	// storing strings in the lexicographical order
-	for (int i = 0; i < 5; ++i)
-	{
-		for (int j = i + 1; j < 5; ++j)
-		{
-
-			// swapping strings if they are not in the lexicographical order
-			if (strcmp(str[i], str[j]) > 0)
-			{
-				strcpy(temp, str[i]);
-				strcpy(str[i], str[j]);
-				strcpy(str[j], temp);
-			}
-		}
-	}
-
-	printf("\nIn the lexicographical order: \n");
-	for (int i = 0; i < 5; ++i)
-	{
-		fputs(str[i], stdout);
-	}
-	return 0;
+	return (x * x * x - 4 * x - 9);
 }
 
-/*R programming
-JavaScript
-Java
-C programming
-C++ programming*/
+void bisection(float *x, float a, float b, int *itr)
+{
+	*x = (a + b) / 2;
+	++(*itr);
+	printf("Iteration no.%3d X = %7.5f\n", *itr, *x);
+}
+
+void main()
+
+{
+	int itr = 0, maxmitr;
+	float x, a, b, allerr, x1;
+	printf("\nEnter the values of a, b, allowed error and maximum iterations:\n");
+	scanf("%f %f %f %d", &a, &b, &allerr, &maxmitr);
+	bisection(&x, a, b, &itr);
+	do
+	{
+		if (fun(a) * fun(x) < 0)
+			b = x;
+		else
+			a = x;
+		bisection(&x1, a, b, &itr);
+
+		if (fabs(x1 - x) < allerr)
+		{
+			printf("After %d iterations, root = %6.4f\n", itr, x1);
+			return 0;
+		}
+	} while (itr < maxmitr);
+	x = x1;
+	printf("The solution does not converge or iterations not sufficient");
+	return 1;
+}
