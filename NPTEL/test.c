@@ -1,18 +1,18 @@
 #include <stdio.h>
-struct p
+int fun(int arr[])
 {
-    int x;
-    char y;
-};
+    printf("%u\n", arr);
+    arr = arr + 1;
+    printf("%u\n", arr);
+    printf("%d\n", arr[0]);
+}
 
-int main()
+int main(void)
 {
-    struct p p1[] = {1, 21, 69, 42, 64};
-    struct p *ptr1 = p1;
-    int x = (sizeof(p1) / 4);
-    if ((x == sizeof(int) + 2 * sizeof(char)))
-        printf("True");
-    else
-        printf("False");
-    return 0;
+    int arr[3] = {5, 10, 15};
+    fun(arr);
+    // here changing the ADDRESS of arr in fun doesn't have any effect
+    printf("%u\n", arr);
+    printf("%d\n", arr[0]);
+    printf("%d\n", arr[1]);
 }
