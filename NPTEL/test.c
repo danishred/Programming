@@ -1,18 +1,25 @@
 #include <stdio.h>
-int fun(int arr[])
+int checkPrime(int, int); //Function to check prime or not 
+
+int main()
 {
-    printf("%u\n", arr);
-    arr = arr + 1;
-    printf("%u\n", arr);
-    printf("%d\n", arr[0]);
+    int num, check;
+    scanf("%d", &num); //The number is taken from test case data
+    check = checkPrime(num, num/2);
+    if (check == 1)
+    {
+        printf("%d is a prime number", num);
+    }
+    else
+    {
+        printf("%d is not a prime number", num);
+    }
+    return 0;
 }
 
-int main(void)
+
+int checkPrime(int num, int num2)
 {
-    int arr[3] = {5, 10, 15};
-    fun(arr);
-    // here changing the ADDRESS of arr in fun doesn't have any effect
-    printf("%u\n", arr);
-    printf("%d\n", arr[0]);
-    printf("%d\n", arr[1]);
+    
+
 }
