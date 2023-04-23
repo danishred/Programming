@@ -1,26 +1,37 @@
 #include <stdio.h>
-
-int fib(int n)
-{
-	if (n == 1)
-	{
-		return 1;
-	}
-
-	if (n == 0)
-	{
-		return 0;
-	}
-
-	return (fib(n - 1) + fib(n - 2));
-}
+int checkPrime(int, int); //Function to check prime or not 
 
 int main()
 {
-	int n, result;
-	printf("enter value of n :\n");
-	scanf("%d", &n);
-	result = fib(n);
-	printf("%d\n", result);
-	return 0;
+    int num, check;
+    scanf("%d", &num); //The number is taken from test case data
+    check = checkPrime(num, num/2);
+    if (check == 1)
+    {
+        printf("%d is a prime number", num);
+    }
+    else
+    {
+        printf("%d is not a prime number", num);
+    }
+    return 0;
+}
+
+int checkPrime(int num, int i)
+{
+    if (i == 1)
+    {
+        return 1;
+    }
+    else
+    {
+       if (num % i == 0)
+       {
+         return 0;
+       }
+       else
+       {
+         return checkPrime(num, i - 1);
+       }
+    }
 }
