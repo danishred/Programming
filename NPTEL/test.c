@@ -1,14 +1,14 @@
-// pre and post increases value of the expression as well
-
 #include <stdio.h>
-
 int main()
+
 {
-   int arr[] = {1, 2, 3, 4, 5, 6};
-   int i, j, k;
-   j = ++arr[2];
-   k = arr[1]++;
-   i = arr[j++];
-   printf("%d\n%d\n%d\n%d", i, j, k, arr[2]);
-   return 0;
+
+    int a;
+
+    int arr[5] = {1, 2, 3, 4, 5};
+    ++arr[1];
+    a = arr[1]++;
+    arr[1] = arr[a++];
+    printf("%d, %d", a, arr[1]);
+    return 0;
 }
