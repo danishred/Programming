@@ -14,13 +14,17 @@ int main()
     *p = *p + 3;
     cout << *p << endl;
 
-    short num[3][2] = {2, 5, 11, 17, 23, 28};
+    short num[4][2] = {2, 5, 11, 17, 15, 28, 4, 6};
 
     // increases address//
     printf("%d,%d,%d\n", num, (num + 1), (num + 2));
 
-    // either use double dereference of brackets to get the value
-    printf("%d,%d,%d,%d,%d,%d\n", *(num), **(num), (num)[0], (num)[0][0], **(num + 1), *(num + 2)[0]);
+    // either use double dereference or brackets to get the value
+    printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", *(num), **(num), (num)[0], (num)[0][0], **(num + 1),
+           *(num + 2)[0], *(*(num + 2) + 1), num[2][0], *(num)[1]);
+
+    // *(num+1)[1]=*(*((num+1)+1))=*(*(num+2))=*(num[2])=num[2][0]=15And**(num+2)=*(num[2]+0)=num[2][0]=15
+    printf("%d,%d,%d\n",*(num+1)[1],*(num)[1],*(num+2)[1]);
 
     int x = 10;
 

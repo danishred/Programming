@@ -1,1 +1,1 @@
-cout << "here" << table[15];
+*(num+1)[1]
