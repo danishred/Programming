@@ -13,6 +13,6 @@ double cToF(int C)
 int main()
 {
     int C = 39;
-    cout << cToF(C);
+    cout << cToF(C) <<endl;
     return 0;
 }
