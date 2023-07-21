@@ -12,7 +12,7 @@ double cToF(int C)
 
 int main()
 {
-    int C = 339;
+    int C = 39;
     cout << cToF(C);
     return 0;
 }
