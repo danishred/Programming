@@ -1,4 +1,4 @@
-//Factorial Iterative
+//Factorial Iterative (Better than recursive in terms of space)
 
 // Theta (n) time complexity
 // Auxilary space requirement big O (1)
