@@ -44,6 +44,6 @@ int main()
 {
     int n;
     cin >> n;
-    cout << trailing_zeros2(n);
+    cout << trailing_zeros2(n)<<endl;
     return 0;
 }
