@@ -26,7 +26,9 @@ int trailing_zeros1(int n)
 // Efficient
 /*Here we are dividing n by 5 then 25 and then 125 and so on, in order to find how many prime
 factors AS 5 are there. The no. of prime factors as 5 are the no. of trailing zeroes.
-How to count the total number of 5s in prime factors of n!? A simple way is to calculate floor(n/5).*/
+How to count the total number of 5s in prime factors of n!? A simple way is to calculate floor(n/5).
+Some number like 25 will have more than 1 prime factor which can be calculated dividing the same n
+with it.*/
 
 int trailing_zeros2(int n)
 {
