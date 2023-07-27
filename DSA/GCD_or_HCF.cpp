@@ -58,6 +58,6 @@ int main()
     cout << "\n"
          << "Euclidean: " << gcdEu(n1, n2);
     cout << "\n"
-         << "Optimised: " << gcdEuOp(n1, n2);
+         << "Optimised: " << gcdEuOp(n1, n2) << endl;
     return 0;
 }

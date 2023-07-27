@@ -42,7 +42,8 @@ bool isPrime(int n)
 
     return true;
 }
-// Time Complexity: O(sqrt(n));
+// Time Complexity: O(sqrt(n)), still it is 3 times faster
+// than efficient solution
 // Auxiliary Space: O(1);
 
 // Mine
@@ -82,6 +83,6 @@ int main()
     else
         cout << "false";
     printf("\n\nEffiecient: %s", isPrime(n1) ? "true" : "false");
-    printf("\n\nMore Effiecient: %s", isPrimen(n1) ? "true" : "false");
+    printf("\n\nMore Effiecient: %s", isPrimen(n1) ? "true\n" : "false\n");
     return 0;
 }

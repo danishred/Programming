@@ -58,9 +58,10 @@ int main()
     cout << "Sir's: " << LCM(n1, n2);
     cout << "\n"
          << "mine: " << LCM_Sir(n1, n2);
+    // from a*b=gcd*lcm
     cout << "\n"
-         << "Optimised : " << n1 * n2 / gcdEuOp(n1, n2);
-         // Time Complexity: O(log(min(a,b))
-         // Auxiliary Space: O(log(min(a,b))
+         << "optimized : " << n1 * n2 / gcdEuOp(n1, n2) << endl;
+    // Time Complexity: O(log(min(a,b))
+    // Auxiliary Space: O(log(min(a,b))
     return 0;
 }
