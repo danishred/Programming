@@ -12,6 +12,7 @@ void PrimeFactorsMef(int N)
 {
     if (N <= 1)
         return;
+
     while (N % 2 == 0)
     {
         cout << "2 ";

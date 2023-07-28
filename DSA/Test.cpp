@@ -1,53 +1,71 @@
-// Exactly 3 Divisors
+//Print Divisor
 
 #include <iostream>
 using namespace std;
 
-// Prime function as a module
-bool isprime(int n)
+// Sir's Efficient
+void SE_Print_Divisor(int n)
 {
-    if (n <= 1)
-        return false;
-
-    if (n == 2 || n == 3)
-        return true;
-
-    if (n % 2 == 0 || n % 3 == 0)
-        return false;
-
-    for (int i = 5; i * i <= n; i += 6)
+    for (int i = 1; i * i <= n; i++)
     {
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
-    }
-    return true;
-}
-// Time Complexity:O(sqrt(n)) 
-// Auxiliary Space:O(1)
-
-
-void divisors(int n)
-{
-    int count = 0;
-    for (int i = 2; (i * i) <= n; i++)
-    {
-        if (isprime(i))
+        if (n % i == 0)
         {
-            count++;
+            cout << i << " ";
+
+            if (i != n / i)
+                cout << n / i << " ";
         }
     }
-    cout << count << endl;
 }
-// Time Complexity:O(sqrt (n) 
+// Time Complexity:O(sqrt(n))
 // Auxiliary Space:O(1)
 
 
-// Driver code
+// Mine Efficient
+void ME_Print_Divisor(int n)
+{
+    for (int i = 1; i * i <= n; i++)
+    {
+        if (i * i == n)
+        {
+            cout << i << " ";
+            continue;
+        }
+        if (n % i == 0)
+        {
+            cout << i << " ";
+            cout << n / i << " ";
+        }
+    }
+}
+// Time Complexity:O(sqrt(n))
+// Auxiliary Space:O(1)
+
+// Mine
+void M_Print_Divisor(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cout << i << " ";
+        }
+    }
+}
+// Time Complexity:O(n)
+// Auxiliary Space:O(1)
+
+
+// Driver Code
 int main()
 {
-    int n;
-    cout << "Enter a number to check for Prime:" << endl;
+    int n = 0;
+    cout << "enter the number:" << endl;
     cin >> n;
-    divisors(n);
+    M_Print_Divisor(n);
+    cout << endl;
+    ME_Print_Divisor(n);
+    cout << endl;
+    SE_Print_Divisor(n);
     return 0;
 }
