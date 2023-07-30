@@ -11,19 +11,30 @@ public:
     // Complete this function
     int modInverse(int a, int m)
     {
-        int x = -1;
-        for (int i = 0; i < m; i++)
+        if (m == 1)
         {
-            if ((a % m) * (i) % m == 1)
+            return -1;
+        }
+
+        if (a == 1)
+        {
+            return 1;
+        }
+        int inverse = -1;
+        for (int i = 1; i <= a; i++)
+        {
+            if (((m * i) + 1) % a == 0)
             {
-                return i;
+                inverse = (m * i + 1) / a;
+                break;
             }
         }
-        return -1;
+        return (inverse);
     }
 };
-// Time Complexity: O(logm)
+// Time Complexity: O(loga) 
 // Auxiliary Space: O(1)
+
 
 //{ Driver Code Starts.
 
