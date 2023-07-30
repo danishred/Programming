@@ -11,7 +11,7 @@ int power_e(int x, int n)
         return 1;
     int temp = power_e(x, n / 2);
     temp = temp * temp;
-    if (n % 2 == 2)
+    if (n % 2 == 0)
         return temp;
     else
         return temp*x;
