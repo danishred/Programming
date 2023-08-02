@@ -21,6 +21,8 @@ void SE_Print_Divisor_sorted(int n)
         }
     }
 
+    i=i-1;
+
     for (i; i >= 1; i--)
     {
         if (n % i == 0)
