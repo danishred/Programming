@@ -5,7 +5,7 @@ using namespace std;
 
 // Sir's Efficient sorted
 
-// Here, if you count it is still taking exactly
+// Here, if you count it is still taking
 // exactly the same number of steps as in SE we
 // were doing n/i inside the loop and we are doing 
 // that seperately here to sort.
