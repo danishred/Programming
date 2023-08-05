@@ -10,12 +10,11 @@ int main()
     int res = 0;
     while (n != 0)
     {
-        if (n % 2 != 0)
-            res++;
-        n = n / 2;
+        n = n & (n-1);
+        res++;
     }
     cout << res << endl;
 }
 
-// Time Complexity:Θ(d) | d is number of bits from last bit to msb 
-// Auxiliary Space:O(1) 
+// Time Complexity:Θ(d) | d is number of set bits
+// Auxiliary Space:O(1)

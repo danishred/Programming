@@ -4,18 +4,37 @@
 #include "supplement.h"
 using namespace std;
 
-int main()
+void csb_op(int n)
 {
-    int n = 15;
     int res = 0;
     while (n != 0)
     {
-        if (n % 2 != 0)
-            res++;
+        n = n & (n - 1);
+        res++;
+    }
+    cout << res << endl;
+}
+
+void csb_naive(int n)
+{
+    int res = 0;
+    while (n != 0)
+    {
+        // if (n % 2 != 0)
+        //     res++;
+        res = res + (n & 1);
         n = n / 2;
     }
     cout << res << endl;
 }
 
-// Time Complexity:Θ(d) | d is number of bits from last bit to msb 
-// Auxiliary Space:O(1) 
+int main()
+{
+    int n;
+    cin >> n;
+    csb_naive(n);
+    csb_op(n);
+}
+
+// Time Complexity:Θ(d) | d is number of bits from last bit to msb
+// Auxiliary Space:O(1)
