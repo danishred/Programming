@@ -7,24 +7,26 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
-
-class Solution{
-    public:
+class Solution
+{
+public:
     // n: input to count the number of set bits
-    //Function to return sum of count of set bits in the integers from 1 to n.
+    // Function to return sum of count of set bits in the integers from 1 to n.
     int countSetBits(int n)
     {
-        int res = 0;
-        for(int i = 1; i <=n; i++)
+        n++;
+        int pow2 = 0, temp, setnum, ttl_cnt = 0;
+        for (int i = 0; i * i <= n; i++)
         {
-            int x = i;
-            while (x != 0)
-            {
-                x = x & (x - 1);
-                res++;
-            }
+            pow2 = pow(2, i);
+            setnum = n / pow2;
+            temp = setnum / 2;
+            if (setnum & 1 == 1)
+                ttl_cnt = ttl_cnt + temp*pow2 + n % pow2;
+            else
+                ttl_cnt = ttl_cnt + temp*pow2;
         }
-        return res;
+        return ttl_cnt;
     }
 };
 
