@@ -1,55 +1,48 @@
 
 //{ Driver Code Starts
-//Initial Template for C++
+// Initial Template for C++
 
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-
-// } Driver Code Ends
-//User function Template for C++
-
-class Solution
+void getFirstSetBitEF(int n)
 {
-    public:
-    //Function to find position of first set bit in the given number.
-    unsigned int getFirstSetBit(int n)
+    cout << log2(n & -n)+1;
+}
+
+void getFirstSetBit(int n)
+{
+    if (n == 0)
     {
-        if(n==0)
-        {
-            return 0;
-        }
-        
-        int pos = 1;
-        while ((n&1)==0)
-        {
-            n=n>>1;
-            pos++;
-        }
-        return pos;
+        return;
     }
-};
+
+    int pos = 1;
+    while ((n & 1) == 0)
+    {
+        n = n >> 1;
+        pos++;
+    }
+    cout << pos;
+}
 
 //{ Driver Code Starts.
 
 // Driver code
 int main()
 {
-    int t;
-    cin>>t; // testcases
-    while(t--)
-    {
-        int n;
-        cin>>n; //input n
-        Solution ob;
-        printf("%u\n", ob.getFirstSetBit(n)); // function to get answer
-    }
-	return 0;
+
+    int n;
+    cin >> n;            // input n
+    getFirstSetBit(n);   // function to get answer
+    getFirstSetBitEF(n); // function to get answer
+
+    return 0;
 }
 
 // } Driver Code Ends
-// ALSO
+
+// ALSO (You can include cmath)
 //   Time Comp - 0(1)       Space Comp - 0(1)
 
 //     unsigned int getFirstSetBit(int n)
