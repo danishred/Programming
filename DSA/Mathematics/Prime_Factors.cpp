@@ -12,6 +12,7 @@ void PrimeFactorsMef(int N)
 {
     if (N <= 1)
         return;
+
     while (N % 2 == 0)
     {
         cout << "2 ";
@@ -58,6 +59,7 @@ void PrimeFactorsEf(int N)
             N /= i;
         }
     }
+    // case when largest prime has only one power
     if (N > 1)
         cout << (N);
 }
@@ -87,12 +89,13 @@ int main()
     int N;
     cout << "Enter a number to get prime factors:\n";
     cin >> N;
-    cout << "Prime factors of the given No: ";
+    cout << "Prime factors of the given No:\n";
     PrimeFactors(N);
     cout << "\n";
     PrimeFactorsEf(N);
     cout << "\n";
-    PrimeFactorsMef(N);
+     PrimeFactorsMef(N);
+    cout << endl;
 
     return 0;
 }

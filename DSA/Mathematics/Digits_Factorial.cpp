@@ -1,4 +1,4 @@
-// Digits in factorial
+// Digits in factorial of a number
 
 // Time: not sure but seems like theta(nlogn)
 // Space:BigO(1)
@@ -20,6 +20,6 @@ int main()
     }
 
     digits = floor(sum) + 1;
-    cout<<digits<<" "<<sum;
+    cout<<digits<<" "<<sum<<endl;
     return 0;
 }
