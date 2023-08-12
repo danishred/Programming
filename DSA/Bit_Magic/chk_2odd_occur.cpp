@@ -12,42 +12,41 @@ using namespace std;
 void chkodd_arrEf(int arr[], int n)
 {
     int val = 0, setbit = 0;
-    int set0, set1;
+    int res0, res1;
 
     val = arr[0];
     for (int i = 1; i < n; i++)
-    {
-        val = val ^ arr[i];
-    }
-    setbit = val & -val;
-
+        val = val ^ arr[i]; 
+    
+    // calculate first set bit's number
+    setbit = val & -val; // or (val & ~val+1) or (val & ~(val-1))
 
     if ((arr[0] & setbit) == 0)
     {
-        set0 = arr[0];
+        res0 = arr[0];
         for (int i = 1; i < n; i++)
         {
             if (arr[i] & setbit == 0)
             {
-                set0 = set0 ^ arr[i];
+                res0 = res0 ^ arr[i];
             }
         }
-        set1 = val ^ set0;
+        res1 = val ^ res0;
     }
     else
     {
-        set1 = arr[0];
+        res1 = arr[0];
         for (int i = 1; i < n; i++)
         {
             if (arr[i] & setbit == 1)
             {
-                set1 = set1 ^ arr[i];
+                res1 = res1 ^ arr[i];
             }
         }
-        set0 = val ^ set1;
+        res0 = val ^ res1;
     }
 
-    cout << set1 << " " << set0 << endl;
+    cout << res1 << " " << res0 << endl;
 }
 // Time Complexity:Θ(n)
 // Auxiliary Space:Θ(1)
