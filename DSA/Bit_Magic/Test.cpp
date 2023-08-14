@@ -10,13 +10,11 @@ using namespace std;
 class Solution
 {
 public:
-    // Function to find the first position with different bits.
-    int posOfRightMostDiffBit(int m, int n)
+    // Function to find number of bits needed to be flipped to convert A to B
+    int countBitsFlip(int a, int b)
     {
-        if (m == n)
-            return -1;
-        int x = m ^ n;
-        return log2(x & -x) + 1;
+
+        // Your logic here
     }
 };
 
@@ -26,11 +24,11 @@ public:
 int main()
 {
 
-    int m,
-        n;
-    cin >> m >> n; // input m and n
+    int a, b;
+    cin >> a >> b; // input a and b
+
     Solution ob;
-    cout << ob.posOfRightMostDiffBit(m, n) << endl;
+    cout << ob.countBitsFlip(a, b) << endl;
 
     return 0;
 }
