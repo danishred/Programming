@@ -4,6 +4,7 @@
 #include <vector>
 using namespace std;
 
+// Mine
 void swap(unsigned int n)
 {
 
@@ -46,6 +47,9 @@ void swap(unsigned int n)
     cout << endl
          << res << endl;
 }
+// Time Complexity:Θ(logn) 
+// Auxiliary Space:Θ(1) 
+
 
 // Function to swap odd and even bits
 // GFGs
@@ -78,11 +82,36 @@ void swapBits(unsigned int n)
 // Auxiliary Space: O(logN),
 // LogN space takes vector to store the bits of given number.
 
+
+// GFG efficient
+void swapBitwise(unsigned int N)
+{
+    // Get all even bits of x
+    unsigned int even_bits = N & 0xAAAAAAAA;
+ 
+    // Get all odd bits of x
+    unsigned int odd_bits = N & 0x55555555;
+     
+      // Right shift even bits
+    even_bits >>= 1;
+   
+      // Left shift odd bits
+    odd_bits <<= 1;
+ 
+      // Combine even and odd bits
+    int x = even_bits | odd_bits;
+    cout <<endl<< x<<endl;
+}
+// Time Complexity: O(1)
+// Auxiliary Space: O(1)
+ 
+
 int main()
 {
     unsigned int n;
     cin >> n;
     swap(n);
     swapBits(n);
+    swapBitwise(n);
     return 0;
 }
