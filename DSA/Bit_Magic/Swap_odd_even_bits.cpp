@@ -47,8 +47,37 @@ void swap(unsigned int n)
     cout << endl
          << res << endl;
 }
-// Time Complexity:Θ(logn) 
-// Auxiliary Space:Θ(1) 
+// Time Complexity:Θ(logn)
+// Auxiliary Space:Θ(1)
+
+// GFG 
+void swapBits1(unsigned int x)
+{
+    for (int i = 0; i < 32; i += 2)
+    {
+
+        // Find i th bit
+        int i_bit = (x >> i) & 1;
+
+        // Find i+1 th bit
+        int i_1_bit = (x >> (i + 1)) & 1;
+
+        // Remove i_bit
+        x = x - (i_bit << i)
+            // Remove i+1 th bit
+            - (i_1_bit << (i + 1))
+            // Put i_bit at i+1 location
+            + (i_bit << (i + 1))
+            // Put i+1 bit at i location
+            + (i_1_bit << i);
+    }
+    cout << endl
+         << x << endl;
+}
+// I am doubtful of below
+// Time Complexity:O(1) 
+// Auxiliary Space:O(1)
+
 
 
 // Function to swap odd and even bits
@@ -77,34 +106,33 @@ void swapBits(unsigned int n)
     cout << endl
          << ans << endl;
 }
-// Time Complexity: O(logN), 
+// Time Complexity: O(logN),
 // Conversion of decimal to binary and binary to decimal takes logN time.
 // Auxiliary Space: O(logN),
 // LogN space takes vector to store the bits of given number.
-
 
 // GFG efficient
 void swapBitwise(unsigned int N)
 {
     // Get all even bits of x
     unsigned int even_bits = N & 0xAAAAAAAA;
- 
+
     // Get all odd bits of x
     unsigned int odd_bits = N & 0x55555555;
-     
-      // Right shift even bits
+
+    // Right shift even bits
     even_bits >>= 1;
-   
-      // Left shift odd bits
+
+    // Left shift odd bits
     odd_bits <<= 1;
- 
-      // Combine even and odd bits
+
+    // Combine even and odd bits
     int x = even_bits | odd_bits;
-    cout <<endl<< x<<endl;
+    cout << endl
+         << x << endl;
 }
 // Time Complexity: O(1)
 // Auxiliary Space: O(1)
- 
 
 int main()
 {
@@ -112,6 +140,7 @@ int main()
     cin >> n;
     swap(n);
     swapBits(n);
+    swapBits1(n);
     swapBitwise(n);
     return 0;
 }
