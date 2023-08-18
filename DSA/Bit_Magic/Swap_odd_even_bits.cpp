@@ -10,7 +10,7 @@ void swap(unsigned int n)
 
     unsigned int x, y, res = 0;
 
-    for (int i = 0; i < 31; i += 2)
+    for (int i = 0; i < 32; i += 2)
     {
         x = n;
 
@@ -47,7 +47,7 @@ void swap(unsigned int n)
     cout << endl
          << res << endl;
 }
-// Time Complexity:Θ(logn)
+// Time Complexity:Θ(32)
 // Auxiliary Space:Θ(1)
 
 // GFG 
@@ -74,7 +74,8 @@ void swapBits1(unsigned int x)
     cout << endl
          << x << endl;
 }
-// I am doubtful of below
+// I am doubtful of below 
+// Update: I got it (loop has const value of 32)
 // Time Complexity:O(1) 
 // Auxiliary Space:O(1)
 
@@ -114,7 +115,9 @@ void swapBits(unsigned int n)
 // GFG efficient
 void swapBitwise(unsigned int N)
 {
-    // Get all even bits of x
+    // Hex values are of 4 bits
+    
+    // Get all even bits of x 
     unsigned int even_bits = N & 0xAAAAAAAA;
 
     // Get all odd bits of x
