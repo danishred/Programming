@@ -1,39 +1,62 @@
-// Find longest consecutive 1s
-
-#include <iostream>
+// CPP Program to find maximum AND value of a pair
+#include <bits/stdc++.h>
 using namespace std;
 
-// Mine
-void max_cons_1(int N)
+// Utility function to check number of elements
+// having set msb as of pattern
+int checkBit(int pattern, int arr[], int n)
 {
-    int cur_cnt = 0, max_cnt = 0;
-    for (int i = 0; i < 32; i++)
+    int count = 0;
+    for (int i = 0; i < n; i++)
+        if ((pattern & arr[i]) == pattern)
+            count++;
+    return count;
+}
+
+// Function for finding maximum and value pair
+int maxAND(int arr[], int n)
+{
+    int res = 0, count;
+
+    // iterate over total of 32bits from msb to lsb
+    for (int bit = 31; bit >= 0; bit--)
     {
-        if (N & 1)
-        {
-            cur_cnt++;
-        }
-        if ((N & 1) == 0)
-        {
-            cur_cnt = 0;
-        }
-        if (max_cnt <= cur_cnt)
-        {
-            max_cnt = cur_cnt;
-        }
-        N = N >> 1;
+        // find the count of element having same pattern as
+        // obtained by adding bits on every iteration.
+        count = checkBit(res | (1 << bit), arr, n);
+
+        // if count >= 2 set particular bit in result
+        if (count >= 2)
+            res = res | (1 << bit); // this is the pattern we continued
     }
-    cout << endl
-         << max_cnt << endl;
+
+    return res;
 }
 // Time Complexity:O(1) 
-// Auxiliary Space:O(1) 
+// Auxiliary Space:O(n)
 
 
+// Driver function
 int main()
 {
-    int N;
-    cin >> N;
-    max_cons_1(N);
+    int arr[] = {4, 8, 6, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "Maximum AND Value = " << maxAND(arr, n) << endl;
     return 0;
 }
+
+
+// --------------Also-----------
+//  int findMaxium(int a[], int n)
+// {
+//     int maxi = 0;
+//     for(int i = 0;i<n;i++) 
+//     {
+//         for(int j = i+1;j<n;j++)
+//             maxi = max(maxi, a[i] & a[j]); 
+//     }
+
+//     return maxi; 
+// }
+// Time Complexity:O(n^2) 
+// Auxiliary Space:O(n)
