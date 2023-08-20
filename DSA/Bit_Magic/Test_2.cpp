@@ -1,11 +1,12 @@
 //
 
 #include <iostream>
-#include "supplement.h"
 using namespace std;
 
 int main()
 {
-    cout << isprime(4) << endl;
+    int n = 100;
+    n = n >> 1;
+    cout << n << endl;
     return 0;
 }
