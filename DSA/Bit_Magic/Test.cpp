@@ -1,4 +1,4 @@
-// Given a number N. The task is to check 
+// Given a number N. The task is to check
 // whether it is sparse or not. A number is said to
 // be a sparse number if no two or more consecutive
 //  bits are set in the binary representation.
@@ -26,20 +26,20 @@ int isSparse(int n)
     // Sparse
     return 1;
 }
-// Time Complexity:O(1) 
+// Time Complexity:O(1)
 // Auxiliary Space:O(1)
 
-
 // GFG
-    bool isSparse2(int n)
-    {
-        //we perform Right shift on n by 1 bit.
-        //then perform AND operation on n and n/2
-        //(obtained by right shifting n by 1 bit). 
-        //returning true if we get 0 as result otherwise false.
-        return (n & (n >> 1)) == 0;
-        
-    }
+bool isSparse2(int n)
+{
+    // we perform Right shift on n by 1 bit.
+    // then perform AND operation on n and n/2
+    //(obtained by right shifting n by 1 bit).
+    // returning true if we get 0 as result otherwise false.
+    return (n & (n >> 1)) == 0;
+}
+// Time Complexity:O(1)
+// Auxiliary Space:O(1)
 
 int main()
 {
