@@ -33,7 +33,7 @@ int maxAND(int arr[], int n)
     return res;
 }
 // Time Complexity:O(1) 
-// Auxiliary Space:O(n)
+// Auxiliary Space:O(1)
 
 
 // Driver function
@@ -45,18 +45,31 @@ int main()
     return 0;
 }
 
+// ------------------Also-------------------------
+// // CPP Program to find maximum XOR value of a pair
+// #include <bits/stdc++.h>
+// using namespace std;
 
-// --------------Also-----------
-//  int findMaxium(int a[], int n)
+// // Function for finding maximum and value pair
+// int maxAND(int arr[], int n)
 // {
-//     int maxi = 0;
-//     for(int i = 0;i<n;i++) 
-//     {
-//         for(int j = i+1;j<n;j++)
-//             maxi = max(maxi, a[i] & a[j]); 
-//     }
+//     int res = 0;
+//     for (int i = 0; i < n; i++)
+//         for (int j = i + 1; j < n; j++)
+//             res = max(res, arr[i] & arr[j]);
 
-//     return maxi; 
+//     return res;
 // }
-// Time Complexity:O(n^2) 
-// Auxiliary Space:O(n)
+
+// // Driver function
+// int main()   
+// {
+//     int arr[] = { 4, 8, 6, 2 };
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     cout << "Maximum AND Value = " << maxAND(arr, n);
+//     return 0;
+// }
+// Time Complexity: O(N2)
+// Auxiliary Space: O(1)
+
+
