@@ -32,8 +32,9 @@ int maxAND(int arr[], int n)
 
     return res;
 }
-// Time Complexity:O(1) 
-// Auxiliary Space:O(1)
+// Time Complexity: O(N*log(M)) where M is the maximum element from the array and N is the size of the array.
+// Auxiliary Space: O(1)
+
 
 
 // Driver function

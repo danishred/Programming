@@ -1,62 +1,58 @@
-// CPP Program to find maximum AND value of a pair
+//{ Driver Code Starts
+// Initial Template for C++
 #include <bits/stdc++.h>
 using namespace std;
 
-// Utility function to check number of elements
-// having set msb as of pattern
-int checkBit(int pattern, int arr[], int n)
-{
-    int count = 0;
-    for (int i = 0; i < n; i++)
-        if ((pattern & arr[i]) == pattern)
-            count++;
-    return count;
-}
+// } Driver Code Ends
+// User function Template for C++
 
-// Function for finding maximum and value pair
-int maxAND(int arr[], int n)
+class Solution
 {
-    int res = 0, count;
-
-    // iterate over total of 32bits from msb to lsb
-    for (int bit = 31; bit >= 0; bit--)
+public:
+    int checkBit(int pattern, int arr[], int N)
     {
-        // find the count of element having same pattern as
-        // obtained by adding bits on every iteration.
-        count = checkBit(res | (1 << bit), arr, n);
-
-        // if count >= 2 set particular bit in result
-        if (count >= 2)
-            res = res | (1 << bit); // this is the pattern we continued
+        int count = 0;
+        for (int i = 0; i < N; i++)
+        {
+            if ((pattern & arr[i]) == pattern)
+                count++;
+        }
+        return count;
     }
 
-    return res;
-}
-// Time Complexity:O(1) 
-// Auxiliary Space:O(n)
+    // Function for finding maximum AND value.
+    int maxAND(int arr[], int N)
+    {
+        int res = 0, count;
 
+        // iterate over total of 32bits from msb to lsb
+        for (int bit = 31; bit >= 0; bit--)
+        {
+            count = checkBit(res | (1 << bit), arr, N);
+            if (count >= 2)
+                res = res | (1 << bit);
+        }
+    return res;
+    }
+};
+
+//{ Driver Code Starts.
 
 // Driver function
 int main()
 {
-    int arr[] = {4, 8, 6, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "Maximum AND Value = " << maxAND(arr, n) << endl;
+
+    int n;
+    cin >> n; // input n
+    int arr[n + 5], i;
+
+    // inserting elements
+    for (i = 0; i < n; i++)
+        cin >> arr[i];
+    Solution obj;
+    // calling maxAND() function
+    cout << obj.maxAND(arr, n) << endl;
+
     return 0;
 }
-
-
-// --------------Also-----------
-//  int findMaxium(int a[], int n)
-// {
-//     int maxi = 0;
-//     for(int i = 0;i<n;i++) 
-//     {
-//         for(int j = i+1;j<n;j++)
-//             maxi = max(maxi, a[i] & a[j]); 
-//     }
-
-//     return maxi; 
-// }
-// Time Complexity:O(n^2) 
-// Auxiliary Space:O(n)
+// } Driver Code Ends
