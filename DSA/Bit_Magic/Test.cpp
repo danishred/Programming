@@ -1,4 +1,5 @@
-// Binary to Gray code conversion
+// Find gray code of the decimal N and
+// convert it into decimal
 
 #include <iostream>
 using namespace std;
@@ -6,11 +7,13 @@ using namespace std;
 int greyConverter(int n)
 {
     int res = 0;
-    for (int i = 31; i >=0; i--)
+    for (int i = 31; i >= 0; i--)
     {
-        if ((n & (n>>i)) == 1)
-        res = res | n&-n
-        n >> 1;
+        if (((n >> i) & 1) == 1)
+            {
+                
+            }
+        n = n >> i
     }
 }
 
@@ -19,6 +22,5 @@ int main()
     int n;
     cin >> n;
     cout << greyConverter(n) << endl;
-
     return 0;
 }

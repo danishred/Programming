@@ -40,7 +40,7 @@ int maxAND(int arr[], int n)
 // Driver function
 int main()
 {
-    int arr[] = {4, 8, 6, 2};
+            int arr[] = {4, 8, 6, 2};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << "Maximum AND Value = " << maxAND(arr, n) << endl;
     return 0;
