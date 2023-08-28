@@ -9,11 +9,11 @@ class Solution
 public:
     // You need to complete this fucntion
 
-    long long power(long long N,long long R)
+    long long power(long long N, long long R)
     {
         long long m = pow(10, 9) + 7;
-        long long x = (long long) pow(N, R);
-        return x ;
+        long long x = (long long)pow(N, R);
+        return x % m;
     }
 };
 
