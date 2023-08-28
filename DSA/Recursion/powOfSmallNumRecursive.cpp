@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-int recursivePower(int x, int n)
+long long recursivePower(long long x, long long n)
 {
     if (n == 0)
     {
@@ -15,7 +15,7 @@ int recursivePower(int x, int n)
 
 int main()
 {
-    int x, n;
+    long long x, n;
     cin >> x >> n;
     cout << recursivePower(x, n) << endl;
     return 0;
