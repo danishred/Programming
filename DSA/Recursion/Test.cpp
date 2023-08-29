@@ -13,6 +13,9 @@ void printToN(int n)
     cout << n << " ";
     return;
 }
+// Time Complexity:Θ(n) 
+// Auxiliary Space: 
+
 
 int main()
 {
