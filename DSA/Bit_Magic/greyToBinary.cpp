@@ -7,9 +7,14 @@ using namespace std;
 
 int greyToBinaryConverter(int n)
 {
-    return(!(n&(n-1)));
+    int res = n;
+    while (n > 0)
+    {
+        n >>= 1;
+        res ^= n;
+    }
+    return res;
 }
-
 
 int main()
 {
