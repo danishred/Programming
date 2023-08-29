@@ -1,22 +1,23 @@
-// Power of numbers using recursion
-// for small numbers
+// Print all numbers upto n
 
 #include <iostream>
 using namespace std;
 
-int recursivePower(int x, int n)
+void printToN(int n)
 {
     if (n == 0)
     {
-        return 1;
+        return;
     }
-    return x * recursivePower(x, n - 1);
+    printToN(n - 1);
+    cout << n << " ";
+    return;
 }
 
 int main()
 {
-    int x, n;
-    cin >> x >> n;
-    cout << recursivePower(x, n) << endl;
+    int n;
+    cin >> n;
+    printToN(n);
     return 0;
 }

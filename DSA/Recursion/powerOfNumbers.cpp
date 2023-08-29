@@ -11,11 +11,32 @@ public:
 
     long long power(long long N, long long R)
     {
-        long long m = pow(10, 9) + 7;
-        long long x = (long long)pow(N, R);
-        return x % m;
+        int mod=1000000007;
+        if (R == 0)
+            return 1;
+        if (R == 1)
+            return N;
+        long long val = power(N, R / 2) % mod;
+        val = (val * val) % mod;
+        if (R & 1)
+            val = (val * N) % mod;
+
+        return val;
     }
-};
+    //     Time Complexity - O( log(b) )
+    // As we have to divide b continuously until it becomes 1. Assume we divide b by 2 for k times until it becomes 1.
+
+    // Thus, b/(2^k) =1 
+
+    // b = 2 ^ k
+
+    // k= log(b)  (In coding , whenever log is written , it is simply log base 2 ).
+
+    
+
+    // Space Complexity - O ( log(b) ) 
+    // As recursive calls are made, so at max log(b) recusive stack calls are made to store values until b is not 1.
+    };
 
 //{ Driver Code Starts.
 
