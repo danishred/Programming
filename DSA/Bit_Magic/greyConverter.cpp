@@ -6,9 +6,7 @@ using namespace std;
 
 int greyConverter(int n)
 {
-    n = n ^ n >> 1;
-
-    return ();
+    return (n ^ n >> 1);
 }
 
 int main()
