@@ -1,36 +1,24 @@
-// Initial Template for C++
+//
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
-// } Driver Code Ends
-// User function Template for C++
-
-class Solution
+//
+bool recChkPalin(char str[], int n, int k)
 {
-public:
-    // Complete this function
-    int fibonacci(int n)
+    if (str)
     {
-        if (n == 1)
-            return 1;
-        if (n == 0)
-            return 0;
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        /* code */
     }
-};
+}
 
-//{ Driver Code Starts.
 int main()
 {
-
-    int n;
-    // taking number n
-    cin >> n;
-    Solution ob;
-    // calling fibonacci() function
-    cout << ob.fibonacci(n) << endl;
-
+    int n, k = 0;
+    char str[100];
+    n = strlen(str);
+    cin >> str;
+    cout << recChkPalin(str, n, k) << endl;
     return 0;
 }
-// } Driver Code Ends
