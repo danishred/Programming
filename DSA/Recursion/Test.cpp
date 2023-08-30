@@ -7,12 +7,14 @@ using namespace std;
 // Mine
 int countdigits(int n)
 {
-    if (n == 0)
-        return 0;
-    return n % 10 + countdigits(n / 10);
+    if (n <= 9)
+        return 1;
+    int k = countdigits(n / 10);
+    k = k + 1;
+    return k;
 }
-// Time Complexity: O(n) ( Θ(n) in the worst case )
-// Auxiliary Space: O(n) ( Θ(n) in the worst case )
+// Time Complexity: Θ(d) or O(logn) same thing
+// Auxiliary Space: Θ(d) or O(logn) same thing
 
 int main()
 {
