@@ -7,12 +7,13 @@ using namespace std;
 // Mine
 int sumofdigits(int n)
 {
-    if (n == 0)
+    // or if(n <=9 ) saves one recursive call
+    if (n == 0) 
         return 0;
     return n % 10 + sumofdigits(n / 10);
 }
-// Time Complexity: O(n) ( Θ(n) in the worst case )
-// Auxiliary Space: O(n) ( Θ(n) in the worst case )
+// Time Complexity: Θ(digits)
+// Auxiliary Space: Θ(digits)
 
 int main()
 {
