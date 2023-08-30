@@ -1,8 +1,9 @@
-// Print all numbers upto n
-
+// Print all numbers upto n (Tail recursion)
+ 
 #include <iostream>
 using namespace std;
 
+// mine
 void printToN(int n)
 {
     if (n == 0)
@@ -14,7 +15,8 @@ void printToN(int n)
     return;
 }
 // Time Complexity:Θ(n)
-// Auxiliary Space: Θ(n)
+// Auxiliary Space: Θ(1) or O(n) since tail recursion
+// so no auxiliary overhead in modern compilers
 
 int main()
 {
