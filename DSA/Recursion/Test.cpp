@@ -3,15 +3,11 @@
 #include <iostream>
 using namespace std;
 
-void printToN(int n)
+int fact(int n)
 {
-    if (n == 0)
-    {
-        return;
-    }
-    cout << n << " ";
-    printToN(n - 1);
-    return;
+    if (n == 0 || n == 1)
+        return 1;
+    return n * fact(n - 1);
 }
 // Time Complexity:Θ(n)
 // Auxiliary Space: Θ(n)
@@ -20,6 +16,6 @@ int main()
 {
     int n;
     cin >> n;
-    printToN(n);
+    cout << fact(n) << endl;
     return 0;
 }
