@@ -2,15 +2,12 @@
 #include <iostream>
 using namespace std;
 
-void towerOfHanoi(int n)
+void TOH(int n, char A, char B, char C)
 {
-    if (ind == s.length())
+    if (n == 1)
     {
-        res.push_back(ans);
-        return;
+        cout << "Move 1 from " << A << "to" << C << endl;
     }
-    solve(ans + s[ind], res, s, ind + 1);
-    solve(ans, res, s, ind + 1);
 }
 
 //{ Driver Code Starts.
@@ -20,8 +17,8 @@ int main()
 {
 
     int n;
-    cin >> n;   
-    towerOfHanoi(n);
+    cin >> n;
+    TOH(n, 'A', 'B', 'C');
     return 0;
 }
 // } Driver Code Ends
