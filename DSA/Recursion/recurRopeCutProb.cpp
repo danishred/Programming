@@ -21,8 +21,11 @@ int ropeCutting(int n, int a, int b, int c)
         return -1;
     return res + 1;
 }
-// Time Complexity: Θ(d) or O(logn) same thing
-// Auxiliary Space: Θ(d) or O(logn) same thing
+// Time Complexity : O(3^n)
+// Space Complexity : O(n), due to recursive call stack
+// (not auxiliary)
+
+
 
 int main()
 {
