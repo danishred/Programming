@@ -12,6 +12,9 @@ void printSub(string str, string curr, int index)
     printSub(str, curr, index + 1);
     printSub(str, curr + str[index], index + 1);
 }
+// Time Complexity:O(2^n) 
+// Auxiliary Space:O(n)
+
 
 int main()
 {
