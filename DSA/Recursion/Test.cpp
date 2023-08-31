@@ -1,10 +1,11 @@
 // Recursive program to check for palindrome
 
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 // Mine
-int ropeCutting(int n, int a, int b, int c)
+int subset(string &str)
 {
     if (n == 0)
         return 0;
@@ -26,11 +27,9 @@ int ropeCutting(int n, int a, int b, int c)
 
 int main()
 {
-    int n, a, b, c;
-    cout << "please enter rope size\n";
-    cin >> n;
-    cout << "please enter 3 values for rope size \n";
-    cin >> a >> b >> c;
-    cout << "Maxcuts: " << ropeCutting(n, a, b, c) << endl;
+    string str;
+    cout << "please enter string\n";
+    cin >> str;
+    subset(str);
     return 0;
 }
