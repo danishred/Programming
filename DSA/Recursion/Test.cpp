@@ -1,40 +1,28 @@
-//{ Driver Code Starts
-// Initial Template for C++
+//
 
 #include <iostream>
 using namespace std;
 
-// } Driver Code Ends
-// User function Template for C++
-
-class Solution
+// Sir's (Circle position begins with 0)
+int josephus(int n, int k)
 {
-public:
-    int k;
-    // Complete this function
-    int digitalRoot(int n)
-    {
-        // getting answer for 1 and 2 digit will mean the answer for the rest
-        // (most of the time, let recursion do its magic)
-        if (n / 10 == 0)
-            return n;
-        k = n % 10 + digitalRoot(n / 10);
-        return digitalRoot(k);
-    }
-};
+    if (n <= 1)
+        return 0;
+    return (josephus(n - 1, k) + k) % n ;
+}
+// Time Complexity: Θ(n)
+// Auxiliary Space: Θ(n)
 
-//{ Driver Code Starts.
+// Add this function to begin circle from 1
+int myjosephus(int n, int k)
+{
+    return josephus(n, k) + 1;
+}
 
 int main()
 {
-
-    int n;
-    cin >> n; // taking number n
-
-    // calling digitalRoot() function
-    Solution obj;
-    cout << obj.digitalRoot(n) << endl;
-
+    int n, k;
+    cin >> n >> k;
+    cout << myjosephus(n, k) << endl;
     return 0;
 }
-// } Driver Code Ends
