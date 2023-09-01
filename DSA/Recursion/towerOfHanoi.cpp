@@ -17,7 +17,7 @@ void TOH(int n, char A, char B, char C)
     TOH(n - 1, B, A, C);
 }
 // Time Complexity:O(2^n)
-// Auxiliary Space:O(2^n)
+// Auxiliary Space:O(	n)
 
 //{ Driver Code Starts.
 
