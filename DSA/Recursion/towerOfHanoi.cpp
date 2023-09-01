@@ -7,7 +7,7 @@ void TOH(int n, char A, char B, char C)
     if (n == 1)
     {
         // B as Auxiliary
-        cout << "Move 1 from " << A << " to " << C << endl; 
+        cout << "Move 1 from " << A << " to " << C << endl;
         return;
     }
     // C as Auxiliary
@@ -16,6 +16,8 @@ void TOH(int n, char A, char B, char C)
     // A as Auxiliary
     TOH(n - 1, B, A, C);
 }
+// Time Complexity:O(2^n)
+// Auxiliary Space:O(2^n)
 
 //{ Driver Code Starts.
 
