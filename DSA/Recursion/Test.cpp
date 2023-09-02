@@ -1,28 +1,26 @@
-//
-
 #include <iostream>
 using namespace std;
 
-// Sir's (Circle position begins with 0)
-int josephus(int n, int k)
+void printSub(string str, string curr, int index, int n)
 {
-    if (n <= 1)
-        return 0;
-    return (josephus(n - 1, k) + k) % n ;
-}
-// Time Complexity: Θ(n)
-// Auxiliary Space: Θ(n)
+    if (index == str.length())
+    {
+        cout << curr << " " << flush;
+        return;
+    }
 
-// Add this function to begin circle from 1
-int myjosephus(int n, int k)
-{
-    return josephus(n, k) + 1;
+    printSub(str, curr, index + 1);
+    printSub(str, curr + str[index], index + 1);
 }
+// Time Complexity:O(2^n) 
+// Auxiliary Space:O(n)
+
 
 int main()
 {
-    int n, k;
-    cin >> n >> k;
-    cout << myjosephus(n, k) << endl;
+    int n;
+    string str;
+    cin >> str >> n;
+    printSub(str, "", 0, n);
     return 0;
 }
