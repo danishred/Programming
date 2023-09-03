@@ -1,1 +1,4 @@
-    // printSub(arr, "", 0, n);
+    // for (auto &x : arr)
+    // {
+    //     cout << x << endl;
+    // }

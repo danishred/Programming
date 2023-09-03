@@ -12,6 +12,7 @@ int main()
     int n, a;
     cin >> n;
     // datastructure<type> varname;
+    // No need of[] brackets
     vector<int> arr;
     vector<int> curr;
     for (int i = 0; i < n; i++)
@@ -25,6 +26,5 @@ int main()
     {
         cout << x << endl;
     }
-    // printSub(arr, curr, 0, n);
     return 0;
 }

@@ -36,6 +36,6 @@ int main()
     {
         cout << x << endl;
     }
-    // printSub(arr, curr, 0, n);
+    printSub(arr, curr, 0, n);
     return 0;
 }
