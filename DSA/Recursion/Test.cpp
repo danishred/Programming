@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 // int k = 0;
 // void printSub(int arr[], int curr[], int index, int n)
@@ -23,8 +24,9 @@ using namespace std;
 int main()
 {
     int n;
-    cin << n;
-    vector<int> arr[n], curr[];
+    cin >> n;
+    vector<int> arr[n];
+    vector<int> curr[n];
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
