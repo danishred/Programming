@@ -1,5 +1,4 @@
 // Lucky numbers
-
 #include <iostream>
 using namespace std;
 

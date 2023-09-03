@@ -23,18 +23,19 @@ using namespace std;
 
 int main()
 {
-    int n;
+    int n, a;
     cin >> n;
-    vector<int> arr[n];
-    vector<int> curr[n];
+    vector<int> arr;
+    vector<int> curr;
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> a;
+        arr.push_back(a);
     }
-    for (auto x : arr)
+    for (auto &x : arr)
     {
         cout << x << endl;
     }
-    printSub(arr, curr, 0, n);
+    // printSub(arr, curr, 0, n);
     return 0;
 }
