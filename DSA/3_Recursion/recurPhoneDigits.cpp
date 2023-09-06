@@ -12,44 +12,44 @@ using namespace std;
 class Solution
 {
 public:
-	vector<string> ans;
-	unordered_map<int, string> mp;
-	Solution()
-	{
-		mp[2] = "abc";
-		mp[3] = "def";
-		mp[4] = "ghi";
-		mp[5] = "jkl";
-		mp[6] = "mno";
-		mp[7] = "pqrs";
-		mp[8] = "tuv";
-		mp[9] = "wxyz";
-	}
-
-
-	void fun(string s, int a[], int N, int index)
-	{
-		if (index == N)
+		vector<string> ans;
+		unordered_map<int, string> mp;
+		Solution()
 		{
-			ans.push_back(s);
+			mp[2] = "abc";
+			mp[3] = "def";
+			mp[4] = "ghi";
+			mp[5] = "jkl";
+			mp[6] = "mno";
+			mp[7] = "pqrs";
+			mp[8] = "tuv";
+			mp[9] = "wxyz";
 		}
-		string tmp = mp[a[index]];
 
-		for (int j = 0; j < tmp.length(); j++)
+
+		void fun(string s, int a[], int N, int index)
 		{
-			fun(s + tmp[j], a, N, index + 1);
-		}
-		return ;
-	}
+			if (index == N)
+			{
+				ans.push_back(s);
+			}
+			string tmp = mp[a[index]];
 
-	// Function to find list of all words possible by pressing given numbers.
-	vector<string> possibleWords(int a[], int N)
-	{
-		// Your code here
-		string s = "";
-		fun(s, a, N, 0);
-		return ans;
-	}
+			for (int j = 0; j < tmp.length(); j++)
+			{
+				fun(s + tmp[j], a, N, index + 1);
+			}
+			return ;
+		}
+
+		// Function to find list of all words possible by pressing given numbers.
+		vector<string> possibleWords(int a[], int N)
+		{
+			// Your code here
+			string s = "";
+			fun(s, a, N, 0);
+			return ans;
+		}
 };
 
 //{ Driver Code Starts.
