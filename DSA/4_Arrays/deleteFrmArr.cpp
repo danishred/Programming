@@ -25,6 +25,8 @@ int insert(int arr[], int n, int x)
     }
     return (n - 1);
 }
+// Time Complexity:Θn
+// Auxiliary Space:Θn
 
 int main()
 {
