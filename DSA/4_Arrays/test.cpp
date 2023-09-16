@@ -24,28 +24,40 @@ int maxIndex(int arr[], int n)
 
 int maxIndex1(int arr[], int n)
 {
-    int max = 0;
-    // current max (in maxright) or min (in minleft) is checked
-    int maxright[n];
-    int minleft[n];
+    int res = 0;
 
-    maxright[0] = arr[0];
+    // right to left storing max value
+    int leftmin[n];
+    // left to right storing min value
+    int maxright[n];
+
+    leftmin[0] = arr[0];
     for (int i = 1; i < n; i++)
     {
-        if (maxright[i - 1] > arr[i])
+        if (leftmin[i - 1] < arr[i])
         {
-            maxright[i] = maxright[i - 1];
+            leftmin[i] = leftmin[i - 1];
+        }
+        else
+            leftmin[i] = arr[i];
+    }
+
+    maxright[n - 1] = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (maxright[i + 1] > arr[i])
+        {
+            maxright[i] = maxright[i + 1];
         }
         else
             maxright[i] = arr[i];
     }
 
-    minleft[n - 1] = arr[n - 1];
-    for (int i = n - 2; i > 0; i--)
+    for (int i = 0; i < n; i++)
     {
-        if (minleft[i + 1] > arr[i])
+        if (maxright[i] > leftmin[i])
         {
-            
+            res++;
         }
     }
 
@@ -53,8 +65,13 @@ int maxIndex1(int arr[], int n)
     {
         cout << maxright[i] << " ";
     }
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << leftmin[i] << " ";
+    }
 
-    return max;
+    return res;
 }
 
 int main()
