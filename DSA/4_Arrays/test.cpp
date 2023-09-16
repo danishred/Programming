@@ -4,7 +4,7 @@
 using namespace std;
 
 // Bruteforce
-int maxIndex(int arr[], int n)
+int maxIndex(int A[], int n)
 {
     int mx = 0;
     for (int i = 0; i < n; i++)
@@ -12,7 +12,7 @@ int maxIndex(int arr[], int n)
         // We can use j = i+1 to reduce some complexity
         for (int j = 0; j < n; j++)
         {
-            if (arr[i] <= arr[j] && i < j)
+            if (A[i] <= A[j] && i < j)
             {
                 mx = max(j - i, mx);
             }
@@ -22,7 +22,7 @@ int maxIndex(int arr[], int n)
     return mx;
 }
 
-int maxIndex1(int arr[], int n)
+int maxIndex1(int A[], int n)
 {
     int res = 0;
 
@@ -31,35 +31,41 @@ int maxIndex1(int arr[], int n)
     // left to right storing min value
     int maxright[n];
 
-    leftmin[0] = arr[0];
+    leftmin[0] = A[0];
     for (int i = 1; i < n; i++)
     {
-        if (leftmin[i - 1] < arr[i])
+        if (leftmin[i - 1] < A[i])
         {
             leftmin[i] = leftmin[i - 1];
         }
         else
-            leftmin[i] = arr[i];
+            leftmin[i] = A[i];
     }
 
-    maxright[n - 1] = arr[n - 1];
+    maxright[n - 1] = A[n - 1];
     for (int i = n - 2; i >= 0; i--)
     {
-        if (maxright[i + 1] > arr[i])
+        if (maxright[i + 1] > A[i])
         {
             maxright[i] = maxright[i + 1];
         }
         else
-            maxright[i] = arr[i];
+            maxright[i] = A[i];
     }
 
-    for (int i = 0; i < n; i++)
+    int ans = 0;
+    int i = 0;
+    for (int j = 0; j < n; j++)
     {
-        if (maxright[i] > leftmin[i])
+        if (maxright[j] >= leftmin[i])
         {
-            res++;
+            res = j - i;
+            continue;
         }
+        ans = max(res, ans);
+        i++;
     }
+    ans = max(res, ans);
 
     for (int i = 0; i < n; i++)
     {
@@ -70,15 +76,16 @@ int maxIndex1(int arr[], int n)
     {
         cout << leftmin[i] << " ";
     }
+    cout << endl;
 
-    return res;
+    return ans;
 }
 
 int main()
 {
-    int arr[] = {34, 8, 10, 3, 2, 80, 30, 33, 1}, n = 9;
-    // int res = maxIndex(arr, n);
-    maxIndex1(arr, n);
-    // cout << res << endl;
+    int A[] = {82, 63, 44, 74, 82, 99, 82}, n = 7;
+    // int res = maxIndex(A, n);
+    int res = maxIndex1(A, n);
+    cout << res << endl;
     return 0;
 }
