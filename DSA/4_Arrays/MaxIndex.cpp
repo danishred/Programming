@@ -1,4 +1,4 @@
-// Match sticks game
+// Max Index
 
 #include <bits/stdc++.h>
 using namespace std;
