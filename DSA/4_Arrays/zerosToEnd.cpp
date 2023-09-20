@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+// Mine efficient
 void zerosToEnd(int arr[], int n)
 {
     int k = 0;
@@ -20,6 +21,9 @@ void zerosToEnd(int arr[], int n)
         }
     }
 }
+// Time Complexity:O(n) 
+// Auxiliary Space:O(1) 
+
 
 int main()
 {
