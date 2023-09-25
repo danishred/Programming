@@ -27,7 +27,7 @@ void leaders(int arr[], int n)
         for (int j = i + 1; j < n; j++)
         {
             if (arr[i] <= arr[j])
-       x1``         break;
+                break;
 
             if (j == n - 1)
                 cout << arr[i] << " ";
