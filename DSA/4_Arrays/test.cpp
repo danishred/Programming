@@ -1,32 +1,58 @@
-// Find leaders in array
-#include <iostream>
+//{ Driver Code Starts
+// C++ program to remove recurring digits from
+// a given number
+#include <bits/stdc++.h>
 using namespace std;
 
-// Sir's
-void leaders(int arr[], int n)
+// } Driver Code Ends
+
+class Solution
 {
-    for (int i = 0; i < n; i++)
+    // Function to find the leaders in the array.
+public:
+    vector<int> leaders(int a[], int n)
     {
-        for (int j = i + 1; j < n; j++)
+        vector<int> ans;
+        int leader = a[n - 1];
+        ans.insert(ans.begin(), leader);
+        for (int i = n - 2; i >= 0; i--)
         {
-            if (arr[i] <= arr[j])
-                break;
-
-            if (j == n - 1)
-                cout << arr[i]<<" ";
+            if (a[i] > leader)
+            {
+                leader = a[i];
+                ans.insert(ans.begin(), leader);
+            }
         }
+        return ans;
     }
-    cout<<arr[n-1];
-}
-// Time Complexity:O(n^2) 
-// Auxiliary Space:O(1 )
+};
 
+//{ Driver Code Starts.
 
 int main()
 {
-    int n = 7;
-    int arr[] = {7, 10, 4, 10, 6, 5, 2};
-    leaders(arr, n);
+
+    long long n;
+    cin >> n; // total size of array
+
+    int a[n];
+
+    // inserting elements in the array
+    for (long long i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    Solution obj;
+    // calling leaders() function
+    vector<int> v = obj.leaders(a, n);
+
+    // printing elements of the vector
+    for (auto it = v.begin(); it != v.end(); it++)
+    {
+        cout << *it << " ";
+    }
+
     cout << endl;
-    return 0;
 }
+
+// } Driver Code Ends
