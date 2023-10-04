@@ -1,87 +1,88 @@
+// class Solution{
+//     public:
+//     //Function to count the frequency of all elements from 1 to N in the array.
+//     void frequencyCount(vector<int>& arr,int n, int p)
+//     { 
+        
+//         int mx = p+1, idx, count;
+//         for(int i=0; i<n; ++i)
+//         {
+//             idx = i+1;
+//             count = 0;
+//             for(int j=0; j<n; ++j)
+//             {
+//                 if(arr[j]%(mx)==idx)
+//                 {
+//                     ++count;
+//                 }
+//             }
+//             arr[i]+=mx*count;
+//         }
+        
+//         for(int i=0; i<n; ++i)
+//         {
+//             arr[i]/=mx;
+//         }
+        
+//     }
+// };
+
 //{ Driver Code Starts
 #include<bits/stdc++.h>
-using namespace std;
-
+using namespace std; 
 
 // } Driver Code Ends
 
-class Solution
-{
+class Solution{
     public:
-    
-    int segregate (int arr[], int n)
-    {
-        int x=-1;
-        
-        for(int i=0; i<n; i++)
-        {
-            if(arr[i]>0)
-                continue;
-            if(arr[i]<=0 && x==(i-1))
-                x=i;
-            else 
-            {
-                swap(arr[i],arr[x+1]);
-                x+=1;
-            }
-                
-        }
-        
-        return x+1;
-    }
-    
-    //Function to find the smallest positive number missing from the array.
-    int missingNumber(int arr[], int n) 
+    //Function to count the frequency of all elements from 1 to N in the array.
+    void frequencyCount(vector<int>& arr,int n, int p)
     { 
         
-        int x = segregate(arr, n);
-        // cout<<x<<endl;
-        // for(int i=0; i<n; i++)
-        // {
-        //     cout<<arr[i]<<" ";
-        // }
-        // cout<<endl;
-        for(int i=x; i<n; i++)
+        int mx = p+1, x=0;
+        for(int i=0; i<n; ++i)
         {
-            if(abs(arr[i])>n-x)
-                continue;
-            arr[abs(arr[i])+x-1]=-abs(arr[abs(arr[i])+x-1]);
+            // index of array
+            x = arr[i] % mx-1;
+            arr[x] += mx*1;
         }
-        // for(int i=x; i<n; i++)
-        // {
-        //     cout<<arr[i]<<" ";
-        // }
-        // cout<<endl;
-        for(int i=x; i<n; i++)
+        
+        for(int i=0; i<n; ++i)
         {
-            if(arr[i]>0)
-                return i-x+1;
+            arr[i] /= mx;
         }
-            return n-x+1;
-    } 
+        
+    }
 };
+
 
 //{ Driver Code Starts.
 
-int missingNumber(int arr[], int n);
+int main() 
+{ 
+	long long t;
+	
 
-int main() { 
-    
-    //taking testcases
- 
-        
-        //input number n
-        int n;
-        cin>>n;
-        int arr[n];
-        
-        //adding elements to the array
-        for(int i=0; i<n; i++)cin>>arr[i];
-        
+	    
+	    int N, P;
+	    //size of array
+	    cin >> N; 
+	    
+	    vector<int> arr(N);
+	    
+	    //adding elements to the vector
+	    for(int i = 0; i < N ; i++){
+	        cin >> arr[i]; 
+	    }
+        cin >> P;
         Solution ob;
-        //calling missingNumber()
-        cout<<ob.missingNumber(arr, n)<<endl;
-    
-    return 0; 
-} 
-// } Driver Code Ends
+        //calling frequncycount() function
+		ob.frequencyCount(arr, N, P); 
+		
+		//printing array elements
+	    for (int i = 0; i < N ; i++) 
+			cout << arr[i] << " ";
+	    cout << endl;
+	
+	return 0; 
+}
