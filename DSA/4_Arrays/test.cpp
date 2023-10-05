@@ -1,88 +1,77 @@
-// class Solution{
-//     public:
-//     //Function to count the frequency of all elements from 1 to N in the array.
-//     void frequencyCount(vector<int>& arr,int n, int p)
-//     { 
-        
-//         int mx = p+1, idx, count;
-//         for(int i=0; i<n; ++i)
-//         {
-//             idx = i+1;
-//             count = 0;
-//             for(int j=0; j<n; ++j)
-//             {
-//                 if(arr[j]%(mx)==idx)
-//                 {
-//                     ++count;
-//                 }
-//             }
-//             arr[i]+=mx*count;
-//         }
-        
-//         for(int i=0; i<n; ++i)
-//         {
-//             arr[i]/=mx;
-//         }
-        
-//     }
-// };
+// Stock buy and sell for maximum profit
+// (Index represents days and their elemenet stock's value)
 
-//{ Driver Code Starts
-#include<bits/stdc++.h>
-using namespace std; 
+#include <iostream>
+using namespace std;
 
-// } Driver Code Ends
+#include <iostream>
+#include <cmath>
+using namespace std;
 
-class Solution{
-    public:
-    //Function to count the frequency of all elements from 1 to N in the array.
-    void frequencyCount(vector<int>& arr,int n, int p)
-    { 
-        
-        int mx = p+1, x=0;
-        for(int i=0; i<n; ++i)
+// Sir's (better)
+int maxProfit(int price[], int n)
+{
+	int profit = 0;
+
+	for(int i = 1; i < n; i++)
+	{
+		if(price[i] > price[i - 1])
+			profit += price[i] - price[i -1];
+	}
+
+	return profit;
+
+}
+// Time Complexity:O(n) 
+// Auxiliary Space:O(1) 
+
+
+
+
+// Mine
+int maxProfit(int n, int arr[])
+{
+    int buy = 0, sell = 0;
+
+    if (n == 1)
+        return 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i - 1 < 0 && arr[i] < arr[i + 1])
         {
-            // index of array
-            x = arr[i] % mx-1;
-            arr[x] += mx*1;
+            buy = arr[i];
+            continue;
         }
-        
-        for(int i=0; i<n; ++i)
+        if (i - 1 < 0)
         {
-            arr[i] /= mx;
+            continue;
         }
-        
+        if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1])
+        {
+            sell = sell + arr[i] - buy;
+            continue;
+        }
+        if (arr[i - 1] > arr[i] && arr[i] < arr[i + 1])
+        {
+            buy = arr[i];
+            // sell = sell - arr[i];
+            continue;
+        }
+        if (arr[i - 1] < arr[i] && i + 1 > n - 1)
+            sell = sell + arr[i] - buy;
     }
-};
+    return sell;
+}
+// Time Complexity:Θ(n) 
+// Auxiliary Space:Θ(1) 
 
 
-//{ Driver Code Starts.
-
-int main() 
-{ 
-	long long t;
-	
-
-	    
-	    int N, P;
-	    //size of array
-	    cin >> N; 
-	    
-	    vector<int> arr(N);
-	    
-	    //adding elements to the vector
-	    for(int i = 0; i < N ; i++){
-	        cin >> arr[i]; 
-	    }
-        cin >> P;
-        Solution ob;
-        //calling frequncycount() function
-		ob.frequencyCount(arr, N, P); 
-		
-		//printing array elements
-	    for (int i = 0; i < N ; i++) 
-			cout << arr[i] << " ";
-	    cout << endl;
-	
-	return 0; 
+int main()
+{
+    int arr[] = {10, 20, 30};
+    int n = 3;
+    cout << maxProfit(n, arr) << endl;
+    cout << maxProfit(arr, n) << endl;
+    return 0;
 }
