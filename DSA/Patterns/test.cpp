@@ -1,4 +1,4 @@
-//
+// Patterns for logic building
 
 #include <iostream>
 using namespace std;
@@ -193,10 +193,233 @@ void pattern12(int n)
         cout << endl;
     }
 }
+void pattern13(int n)
+{
+    int val = 1;
+    for (int r = 1; r <= n; r++)
+    {
+        for (int c = 1; c <= r; c++)
+        {
+            cout << val++ << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern14(int n)
+{
+    for (int r = 0; r < n; r++)
+    {
+        for (int c = 0; c <= r; c++)
+        {
+            cout << (char)(65 + c);
+        }
+        cout << endl;
+    }
+}
+void pattern15(int n)
+{
+    for (int r = n - 1; r >= 0; r--)
+    {
+        for (int c = 0; c <= r; c++)
+        {
+            cout << (char)(65 + c);
+        }
+        cout << endl;
+    }
+}
+void pattern16(int n)
+{
+    for (int r = 0; r < n; r++)
+    {
+        for (int c = 0; c <= r; c++)
+        {
+            cout << (char)(65 + r);
+        }
+        cout << endl;
+    }
+}
+void pattern17(int n)
+{
+
+    for (int r = 0; r < n; r++)
+    {
+        int k = r;
+        for (int c = n; c > r + 1; c--)
+        {
+            cout << " ";
+        }
+        for (int c = 0; c < (2 * r) + 1; c++)
+        {
+            if (c >= r)
+            {
+                cout << (char)('A' + k--);
+            }
+            else
+                cout << (char)('A' + c);
+        }
+        cout << endl;
+    }
+}
+void pattern18(int n)
+{
+    int k;
+    for (int r = n - 1; r >= 0; r--)
+    {
+        k = n - 1;
+        for (int c = n - 1; c >= r; c--)
+        {
+            cout << (char)(65 + k--) << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern19(int n)
+{
+
+    for (int r = n; r > 0; r--)
+    {
+        for (int c = 1; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+        for (int c = n - r; c > 0; c--)
+        {
+            cout << "  ";
+        }
+        for (int c = 1; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    for (int r = 0; r < n; r++)
+    {
+        for (int c = 0; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+
+        for (int c = r; c < n - 1; c++)
+        {
+            cout << "  ";
+        }
+        for (int c = 0; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+void pattern20(int n)
+{
+    for (int r = 0; r < n; r++)
+    {
+        for (int c = 0; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+        for (int c = n - 1; c > r; c--)
+        {
+            cout << "  ";
+        }
+        for (int c = 0; c < r + 1; c++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    for (int r = n - 1; r >= 1; r--)
+    {
+        for (int c = 1; c <= r; c++)
+        {
+            cout << "*";
+        }
+        for (int c = 0; c <= n - r - 1; c++)
+        {
+            cout << "  ";
+        }
+        for (int c = 1; c <= r; c++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+void pattern21(int n)
+{
+    for (int r = 1; r <= n; r++)
+    {
+        for (int c = 1; c <= n; c++)
+        {
+            if (r == 1 || r == n)
+            {
+                cout << "*";
+                continue;
+            }
+
+            if (c == 1 || c == n)
+            {
+                cout << "*";
+            }
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern22(int n)
+{
+    for (int r = n; r > 0; r--)
+    {
+        int k = n;
+        if (r < n)
+        {
+            for (int c = 0; c < n - r; c++)
+            {
+                cout << k-- << " ";
+            }
+        }
+        for (int c = 0; c < 2 * (r - 1) + 1; c++)
+        {
+            cout << r << " ";
+        }
+        if (r < n)
+        {
+            for (int c = 0; c < n - r; c++)
+            {
+                cout << ++k << " ";
+            }
+        }
+        cout << endl;
+    }
+    for (int r = 2; r <= n; r++)
+    {
+        int k = n;
+        if (r < n)
+        {
+            for (int c = 0; c < n - r; c++)
+            {
+                cout << k-- << " ";
+            }
+        }
+        for (int c = 0; c < 2 * (r - 1) + 1; c++)
+        {
+            cout << r << " ";
+        }
+        if (r < n)
+        {
+            for (int c = 0; c < n - r; c++)
+            {
+                cout << ++k << " ";
+            }
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
-    int n = 5;
-    pattern12(n);
+    int n = 4;
+    pattern22(n);
     return 0;
 }
