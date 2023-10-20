@@ -6,60 +6,29 @@ using namespace std;
 
 int getWater(int arr[], int n)
 {
-    int water = 0, wallval = arr[0], mwall_val = arr[0], wallid = 0,
-        mwallid = 0;
+    int res = 0, lmax[n], rmax[n];
 
+    lmax[0] = arr[0];
     for (int i = 1; i < n; i++)
     {
-        if (arr[i] > wallval && mwallid != wallid)
-        {
-            water += ((min(arr[i],mwall_val))-wallval) * (i - mwallid - 1);
-        }
-        if (arr[i] >= mwall_val)
-        {
-            mwall_val = arr[i];
-            mwallid = i;
-        }
-        if (arr[i] > 0)
-        {
-            water += (i - wallid - 1) * (min(wallval, arr[i]));
-            wallval = arr[i];
-            wallid = i;
-        }
+        lmax[i] = max(arr[i], lmax[i - 1]);
     }
-    return water;
-}
 
-int trap(int arr[], int n)
-{
-    int water = 0, wall_val = 0, wall_idx = 0, tmp_water = 0;
-    for (int i = 0; i < n; i++)
+    rmax[n - 1] = arr[n - 1];
+    for (int i  = n-2; i >= 0; i--)
     {
-        if (arr[i] >= wall_val)
-        {
-            wall_val = arr[i];
-            water += tmp_water;
-            tmp_water = 0;
-            wall_idx = i;
-            continue;
-        }
-        if (i == (n - 1))
-        {
-            tmp_water = arr[i] * (n - 1 - wall_idx);
-            water += tmp_water;
-        }
-        else
-        {
-            tmp_water += wall_val - arr[i];
-        }
+        rmax[i] = max(arr[i], rmax[i + 1]);
     }
-
-    return water;
+    for (int i = 1; i < n - 1; i++)
+    {
+        res += (min(lmax[i], rmax[i])) - arr[i];
+    }
+    return res;
 }
 
 int main()
 {
-    int arr[] = {3,0,1,2,5};
+    int arr[] = {3, 0, 0, 2, 0, 3};
     int n = sizeof(arr) / sizeof(int);
     cout << getWater(arr, n) << endl;
     return 0;
