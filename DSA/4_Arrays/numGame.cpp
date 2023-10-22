@@ -47,7 +47,7 @@ public:
             }
         }
 
-        return k;
+        return k % m;
     }
 };
 
