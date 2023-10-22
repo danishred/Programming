@@ -6,34 +6,34 @@ using namespace std;
 class Solution
 {
 public:
-    // Bruteforce
-    int maxcnsctv1(bool arr[], int n)
+    // Bruteforce Mine
+    int maxSubArray(int arr[], int n)
     {
         // code here
-        int count = 0, temp = 0;
+        int res = INT_MIN, sub = 0;
         for (int i = 0; i < n; i++)
         {
-            if (arr[i] != 1)
+            for (int j = i; j < n; j++)
             {
-                count = max(count, temp);
-                temp = 0;
+                sub += arr[j];
+                res = max(res, sub);
             }
-            else
-                temp++;
+            sub = 0;
         }
-        count = max(count, temp);
-        return count;
+        return res;
     }
+    // Time Complexity:O(n^2)
+    // Auxiliary Space:O(1)
 };
 
 //{ Driver Code Starts.
 int main()
 {
-    bool arr[] = {1,0,1,1,1,1,0,1,1};
-    int n = (int)sizeof(arr);
+    int arr[] = {2, 3, -8, 7, -1, 2, 3};
+    int n = sizeof(arr) / sizeof(int);
     cout << n << endl;
     Solution ob;
-    cout << ob.maxcnsctv1(arr, n) << endl;
+    cout << ob.maxSubArray(arr, n) << endl;
     return 0;
 }
 // } Driver Code Ends
