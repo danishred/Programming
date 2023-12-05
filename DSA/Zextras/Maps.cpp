@@ -1,11 +1,11 @@
-//
+//I'll fill this later
 
 #include <iostream>
-#include "supplement.h"
+#include <map>
 using namespace std;
 
 int main()
 {
-    cout << isprime(4) << endl;
+    
     return 0;
 }
