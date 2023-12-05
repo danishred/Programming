@@ -85,4 +85,5 @@ int main()
     printf("\n\nEffiecient: %s", isPrime(n1) ? "true" : "false");
     printf("\n\nMore Effiecient: %s", isPrimen(n1) ? "true\n" : "false\n");
     return 0;
+    
 }
