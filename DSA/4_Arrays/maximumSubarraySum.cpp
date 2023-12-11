@@ -1,3 +1,6 @@
+/* Given an array arr[], the task is to find the elements
+ of a contiguous subarray of numbers that has the largest sum.*/
+
 //{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,15 +13,19 @@ public:
     int maxSubArray(int arr[], int n)
     {
         // code here
-        int res = INT_MIN, sub = 0;
+        int res = INT_MIN, subArSum = 0;
         for (int i = 0; i < n; i++)
         {
+            // Summing value from index i to n
             for (int j = i; j < n; j++)
             {
-                sub += arr[j];
-                res = max(res, sub);
+                subArSum += arr[j];
+                // current highest value from all
+                // sub-array's sum that lies betn range i to n
+                res = max(res, subArSum);
             }
-            sub = 0;
+            // Resetting variable
+            subArSum = 0;
         }
         return res;
     }
@@ -28,12 +35,13 @@ public:
     // Efficient (hinted)
     int maxSubArray1(int arr[], int n)
     {
-        int curr = 0, temp = 0, res = 0;
+        int currMax = 0, res = 0;
         for (int i = 0; i < n; i++)
         {
-            temp = arr[i]+curr;
-            curr = max(temp, arr[i]);
-            res = max(res,curr);
+            // Extend the current subarray or start a new one
+            currMax = max(arr[i] + currMax, arr[i]);
+            // Store the max value
+            res = max(res, currMax);
         }
         return res;
     }
