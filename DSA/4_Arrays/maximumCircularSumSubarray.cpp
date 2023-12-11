@@ -1,4 +1,4 @@
-// 
+// Given a circular array of size n, find the maximum subarray sum of the non-empty subarray.
         
 #include <iostream> 
 using namespace std;
@@ -18,7 +18,7 @@ int (int n)
 };
 
 // Driver Code
-int main()
+int main
 {
 
     int 

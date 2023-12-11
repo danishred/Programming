@@ -1,4 +1,6 @@
-// Longest Even Odd Subarray
+// Given an array a[] of N integers, 
+// the task is to find the length of the longest Alternating Even Odd subarray present in the array. 
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
