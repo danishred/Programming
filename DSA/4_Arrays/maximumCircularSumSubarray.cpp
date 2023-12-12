@@ -1,31 +1,53 @@
 // Given a circular array of size n, find the maximum subarray sum of the non-empty subarray.
-        
-#include <iostream> 
+
+#include <iostream>
 using namespace std;
 
 class Solution
 {
 public:
+    //
+    int maximumCircularSumSubArray(int arr[], int n)
+    {
+        int currentMaximum = 0, maximum = 0, j = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i; j < n; j++)
+            {
+                currentMaximum = currentMaximum + arr[j];
+                maximum = max(currentMaximum, maximum);
+            }
+            if (j = n - 1)
+            {
+                for (int k = 0; k < i; k++)
+                {
+                    currentMaximum = currentMaximum + arr[k];
+                    maximum = max(currentMaximum, maximum);
+                }
+            }
+            currentMaximum = 0;
+        }
 
-// 
-int (int n)
-{
-
-}
-// Time Complexity:
-// Auxiliary Space:
-
+        return maximum;
+    }
+    // Time Complexity:
+    // Auxiliary Space:
 };
 
 // Driver Code
-int main
+int main()
 {
 
-    int 
-    cin >> 
-
+    // create array snippet
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
     Solution ob;
-    ob.() ;
+    cout << ob.maximumCircularSumSubArray(arr, n) << endl;
 
     return 0;
 }
