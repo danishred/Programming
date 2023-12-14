@@ -1,4 +1,4 @@
-// 
+// Minimum adjacent difference in a circular array
         
 #include <iostream> 
 using namespace std;
