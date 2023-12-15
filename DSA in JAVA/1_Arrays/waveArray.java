@@ -39,7 +39,8 @@ class gfg {
             int[] a = IntArray.input(br, n);
             
             Solution obj = new Solution();
-            obj.convertToWave(n, a);
+            obj.convertToWave(n, a); /* should prefix with a 
+            class name and not its instance */
             StringBuffer sb=new StringBuffer("");
             for(int i : a){
                 sb.append(i+" ");
