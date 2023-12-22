@@ -9,7 +9,7 @@ class IntArray
         String[] s = br.readLine().trim().split(" ");
         int[] a = new int[n];
         for(int i = 0; i < n; i++)
-            a[i] = Integer.parseInt(s[i]);
+            a[i] = Integer.parseInt(s[i]); 
         
         return a;
     }
@@ -33,10 +33,10 @@ class gfg {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             int n; 
-            n = Integer.parseInt(br.readLine());
+            n = Integer.parseInt(br.readLine()); // input size of array
             
             
-            int[] a = IntArray.input(br, n);
+            int[] a = IntArray.input(br, n); // input elements of array / 1 2 3 4 5
             
             Solution obj = new Solution();
             obj.convertToWave(n, a); /* should prefix with a 
