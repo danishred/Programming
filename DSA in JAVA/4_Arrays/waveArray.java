@@ -28,7 +28,7 @@ class IntArray {
     }
 }
 
-class Main {
+class GFG {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n;
@@ -37,10 +37,11 @@ class Main {
         int[] a = IntArray.input(br, n); // Calling input method from IntArray class
 
         Solution obj = new Solution();
-        obj.convertToWave(n, a); /*
-                                  * should prefix with a
-                                  * class name and not its instance
-                                  */
+        obj.convertToWave(n, a);
+        /*
+         * should prefix with a
+         * class name and not its instance
+         */
         StringBuffer sb = new StringBuffer("");
         for (int i : a) {
             sb.append(i + " ");
