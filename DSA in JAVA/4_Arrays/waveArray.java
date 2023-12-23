@@ -49,7 +49,7 @@ class waveArray {
 
 class Solution {
     public static void convertToWave(int n, int[] arr) {
-        // code here
+        /*  input 5 then input 1 2 3 4 5 */
         int temp;
         for (int i = 0; i < n - 1; i += 2) {
             temp = arr[i];
