@@ -1,26 +1,29 @@
-import java.io.*;
+import java.io.*; // ex: buffered reader class 
 import java.util.*;
 import java.util.Arrays;
 
 class IntArray
 {
+    // function for putting elements inside array
     public static int[] input(BufferedReader br, int n) throws IOException
     {
         String[] s = br.readLine().trim().split(" ");
         int[] a = new int[n];
         for(int i = 0; i < n; i++)
-            a[i] = Integer.parseInt(s[i]); 
+            a[i] = Integer.parseInt(s[i]); // input elements of array / 1 2 3 4 5
         
         return a;
     }
     
+    // For Array
     public static void print(int[] a)
     {
         for(int e : a)
-            System.out.print(e + " ");
+        System.out.print(e + " ");
         System.out.println();
     }
     
+    // For ArrayList
     public static void print(ArrayList<Integer> a)
     {
         for(int e : a)
@@ -36,7 +39,7 @@ class gfg {
             n = Integer.parseInt(br.readLine()); // input size of array
             
             
-            int[] a = IntArray.input(br, n); // input elements of array / 1 2 3 4 5
+            int[] a = IntArray.input(br, n); // Calling input method from IntArray class
             
             Solution obj = new Solution();
             obj.convertToWave(n, a); /* should prefix with a 
