@@ -1,2 +1,1 @@
-
-    public static void main(String[] args) {
+20 30 40 50 50 50 50
