@@ -16,7 +16,7 @@ public class majorityElement {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (arr[i] == arr[j]) {
-                    count++;
+                    count++; // for every element count how many times it appears
                 }
             }
             if ((count > k) && (count > majority)) {
@@ -26,6 +26,25 @@ public class majorityElement {
             count = 0;
         }
         return num;
+    }
+    // Time Complexity: O(n^2)
+    // Auxiliary Space: O(1)
+
+    // Sir's|Naive
+    static int findMajority(int arr[], int n) {
+        for (int i = 0; i < n; i++) {
+            int count = 1;
+
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j])
+                    count++;
+            }
+            // if count turn out to be greater than n/2 then by default 
+            // the element become majority
+            if (count > n / 2)
+                return i;
+        }
+        return -1;
     }
     // Time Complexity: O(n^2)
     // Auxiliary Space: O(1)
@@ -43,5 +62,6 @@ public class majorityElement {
         }
         val.close();
         System.out.println(majorityElement1(arr, n));
+        System.out.println(findMajority(arr, n));
     }
 }
