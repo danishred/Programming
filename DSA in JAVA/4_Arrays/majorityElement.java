@@ -4,7 +4,7 @@ an element that appears more than n/2 times (and hence there is at most one such
 // Test Cases:-
 // Input 5 then 8 2 8 4 8 output 0 or 3 or 4
 // Input 6 then 3 7 4 7 7 5 output -1
-// Input 7 then 20 30 40 50 50 50 50 output 50
+// Input 7 then 20 30 40 50 50 50 50 output 3 or 4 or 5 or 6
 
 import java.util.Scanner;
 
