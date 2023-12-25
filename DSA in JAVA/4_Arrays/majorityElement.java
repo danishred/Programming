@@ -39,7 +39,7 @@ public class majorityElement {
                 if (arr[i] == arr[j])
                     count++;
             }
-            // if count turn out to be greater than n/2 then by default 
+            // if count turn out to be greater than n/2 then by default
             // the element become majority
             if (count > n / 2)
                 return i;
@@ -47,6 +47,36 @@ public class majorityElement {
         return -1;
     }
     // Time Complexity: O(n^2)
+    // Auxiliary Space: O(1)
+
+    // Mine|Efficient
+    static int findMajority1(int arr[], int n) {
+        int count = 0, maxCount = 0, majority = -1;
+        // First phase produces a candidate for majority element
+        for (int i = 0; i < n; i++) {
+            // cyclic array check
+            if (arr[i] == arr[(i + 1) % n]) {
+                count++;
+                // stores index of current majority
+                if (count > maxCount) {
+                    majority = i;
+                }
+                // resets count if consecutive equals not found
+            } else
+                count = 0;
+        }
+        // Took second part from sir and it works
+        // Checks whether the chosen element is actually majority
+        count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[majority] == arr[i])
+                count++;
+        }
+        if (count <= n / 2)
+            majority = -1;
+        return majority;
+    }
+    // Time Complexity: O(n)
     // Auxiliary Space: O(1)
 
     // Driver Code
@@ -63,5 +93,6 @@ public class majorityElement {
         val.close();
         System.out.println(majorityElement1(arr, n));
         System.out.println(findMajority(arr, n));
+        System.out.println(findMajority1(arr, n));
     }
 }
