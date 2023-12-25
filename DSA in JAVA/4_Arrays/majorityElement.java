@@ -79,6 +79,36 @@ public class majorityElement {
     // Time Complexity: O(n)
     // Auxiliary Space: O(1)
 
+    // Sir's|Efficient
+    static int findMajority2(int arr[], int n) {
+        int res = 0, count = 1;
+
+        for (int i = 1; i < n; i++) {
+            if (arr[res] == arr[i])
+                count++;
+            else
+                count--;
+
+            if (count == 0) {
+                res = i;
+                count = 1;
+            }
+        }
+
+        count = 0;
+
+        for (int i = 0; i < n; i++)
+            if (arr[res] == arr[i])
+                count++;
+
+        if (count <= n / 2)
+            res = -1;
+
+        return res;
+    }
+    // Time Complexity: O(n)
+    // Auxiliary Space: O(1)
+
     // Driver Code
     public static void main(String[] args) {
         int n;
@@ -94,5 +124,6 @@ public class majorityElement {
         System.out.println(majorityElement1(arr, n));
         System.out.println(findMajority(arr, n));
         System.out.println(findMajority1(arr, n));
+        System.out.println(findMajority2(arr, n));
     }
 }
