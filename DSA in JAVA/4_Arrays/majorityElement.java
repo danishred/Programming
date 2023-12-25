@@ -9,8 +9,10 @@ an element that appears more than n/2 times (and hence there is at most one such
 import java.util.Scanner;
 
 public class majorityElement {
-
+    
     // Mine|Naive
+    // Time Complexity: O(n^2)
+    // Auxiliary Space: O(1)
     public static int majorityElement1(int[] arr, int n) {
         int k = n / 2, count = 0, majority = 0, num = -1;
         for (int i = 0; i < n; i++) {
@@ -27,10 +29,10 @@ public class majorityElement {
         }
         return num;
     }
-    // Time Complexity: O(n^2)
-    // Auxiliary Space: O(1)
 
     // Sir's|Naive
+    // Time Complexity: O(n^2)
+    // Auxiliary Space: O(1)
     static int findMajority(int arr[], int n) {
         for (int i = 0; i < n; i++) {
             int count = 1;
@@ -46,10 +48,10 @@ public class majorityElement {
         }
         return -1;
     }
-    // Time Complexity: O(n^2)
-    // Auxiliary Space: O(1)
 
     // Mine|Efficient
+    // Time Complexity: O(n)
+    // Auxiliary Space: O(1)
     static int findMajority1(int arr[], int n) {
         int count = 0, maxCount = 0, majority = -1;
         // First phase produces a candidate for majority element
@@ -76,10 +78,10 @@ public class majorityElement {
             majority = -1;
         return majority;
     }
-    // Time Complexity: O(n)
-    // Auxiliary Space: O(1)
 
     // Sir's|Efficient
+    // Time Complexity: O(n)
+    // Auxiliary Space: O(1)
     static int findMajority2(int arr[], int n) {
         int res = 0, count = 1;
 
@@ -106,8 +108,6 @@ public class majorityElement {
 
         return res;
     }
-    // Time Complexity: O(n)
-    // Auxiliary Space: O(1)
 
     // Driver Code
     public static void main(String[] args) {
