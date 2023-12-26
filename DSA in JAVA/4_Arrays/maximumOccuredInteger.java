@@ -8,8 +8,28 @@ Ranges represented by above arrays are.
 [3, 9] = {3, 4, 5, 6, 7, 8, 9}
 The maximum occurred integer in these ranges is 3 */
 
-// Testcases
-// Input 3 then 2 1 3 and 5 3 9 Output 3
+// Testcase1
+/*Input
+3
+2 1 3 
+5 3 9 
+Output 3*/
+
+// Testcase2
+/*Input 
+4
+1 4 3 1 
+15 8 5 4 
+Output 4
+*/
+
+// Testcase3
+/*Input 
+5
+1 5 9 13 21
+15 8 12 20 30
+Output 5
+*/
 
 //{ Driver Code Starts
 import java.io.*;
@@ -46,23 +66,56 @@ class maximumOccuredInteger {
         // Solution obj = new Solution();
 
         // calling maxOccured() function
-        System.out.println(maxOccured(L, R, n, maxx));
+        // System.out.println(maxOccured(L, R, n, maxx));
+        System.out.println("Output: " + maxOccured1(L, R, n, maxx));
 
     }
 
+    // Mine|Using arrays
+    // Time Complexity:O(n*maxx)
+    // Auxiliary Space:O(maxx)
     public static int maxOccured(int L[], int R[], int n, int maxx) {
         int[] maxxArr = new int[maxx];
-        int j = 0, res = 0;
+        int j = 0, occurence = 0, res = 0;
         for (int i = 0; i < n; i++) {
-            j = L[i];
-            while (j != R[i]) {
+            j = L[i] - 1;
+            while (j != (R[i])) {
                 // increment index value of that number
                 maxxArr[j] += 1;
-                j++;
+                ++j;
             }
         }
         for (int i = 0; i < maxx; i++) {
-            res = Math.max(maxxArr[i], res);
+            if (maxxArr[i] > occurence) {
+                occurence = maxxArr[i];
+                res = i + 1;
+            }
+        }
+        return res;
+    }
+
+    // Mine|Using hashtable
+    // Time Complexity:O(n*maxx)
+    // Auxiliary Space:O(maxx)
+    public static int maxOccured1(int L[], int R[], int n, int maxx) {
+        Hashtable<Integer, Integer> maxxHashtable = new Hashtable<Integer, Integer>();
+        int j = 0, occurence = 0, res = 0;
+        for (int i = 1; i < maxx + 1; i++) {
+            maxxHashtable.put(i, 0);
+        }
+        for (int i = 0; i < n; i++) {
+            j = L[i];
+            while (j != (R[i] + 1)) {
+                // increment index value of that number
+                maxxHashtable.put(j, maxxHashtable.get(j) + 1);
+                ++j;
+            }
+        }
+        for (j = 1; j < maxx + 1; j++) {
+            if (maxxHashtable.get(j) > occurence) {
+                occurence = maxxHashtable.get(j);
+                res = j;
+            }
         }
         return res;
     }
