@@ -1,47 +1,60 @@
-import java.util.Scanner;
 
-/**
- * test
- */
-public class test {
+//{ Driver Code Starts
+import java.io.*;
+import java.util.*;
+import java.lang.*;
 
-    public static int majorityElement(int[] arr, int n) {
-        int k = n / 2, count = 0, majority = 0, num = -1;
-        for (int i : arr) {
-            for (int j : arr) {
-                if (i == j) {
-                    count++;
-                }
-            }
-            if ((count > k) && (count > majority)) {
-                majority = count;
-                num = i;
-            }
-            count = 0;
-        }
-        return num;
-    }
+class Main {
 
-    // Input 5 then 8 2 8 4 8
-    // Input 6 then 3 7 4 7 7 5
-    public static void main(String[] args) {
-        int n;
-        Scanner val = new Scanner(System.in);
-        System.out.print("Enter the number of elements you want to store: ");
-        n = val.nextInt();
-        int[] arr = new int[n];
-        System.out.println("Enter elements of the Array: ");
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // taking size of array
+        int n = Integer.parseInt(br.readLine().trim());
+        int L[] = new int[n];
+        int R[] = new int[n];
+        String inputLine[] = br.readLine().trim().split(" ");
+
+        // adding elements to array L
         for (int i = 0; i < n; i++) {
-            arr[i] = val.nextInt();
+            L[i] = Integer.parseInt(inputLine[i]);
         }
-       /*  for (int i = 0; i < n; i++) {
-            System.out.println(arr[i]);
-        } */
-        // For each works like this
-     /*    for (int i : arr) {
-             System.out.print(i);
-        } */
-        val.close();
-        System.out.println(majorityElement(arr, n));
+        inputLine = br.readLine().trim().split(" ");
+        int maxx = Integer.MIN_VALUE;
+
+        // adding elements to array R
+        for (int i = 0; i < n; i++) {
+            R[i] = Integer.parseInt(inputLine[i]);
+            if (R[i] > maxx) {
+                maxx = R[i];
+            }
+        }
+
+        Solution obj = new Solution();
+
+        // calling maxOccured() function
+        System.out.println(obj.maxOccured(L, R, n, maxx));
+
     }
+
+}
+
+// } Driver Code Ends
+// L[] and R[] are input ranges
+// n : size of array
+// maxx: maximum element in R[]
+// arr[]: declared globally with size equal to 1000000
+
+class Solution {
+    // Function to find the maximum occurred integer in all ranges.
+    public static int maxOccured(int L[], int R[], int n, int maxx){
+        for (int i = 0; i < n; i++) {
+            System.out.println(L[i]);
+            System.out.println(R[i]);
+        }
+        return maxx;
+        
+    }
+
 }
