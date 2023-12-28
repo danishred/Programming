@@ -67,7 +67,7 @@ class maximumOccuredInteger {
 
         // calling maxOccured() function
         // System.out.println(maxOccured(L, R, n, maxx));
-        System.out.println("Output: " + maxOccured1(L, R, n, maxx));
+        System.out.println("Output: " + maxOccured2(L, R, n, maxx));
 
     }
 
@@ -119,5 +119,28 @@ class maximumOccuredInteger {
         }
         return res;
     }
+    // Mine|Efficient using hint
+    // Time Complexity:O(n+maxx)
+    // Auxiliary Space:O(maxx)
+    public static int maxOccured2(int L[], int R[], int n, int maxx) {
+        int maxxArr[] = new int[maxx+1];
+        int freq = 0, res = 0;
+        for (int i = 1; i < n + 1; i++) {
+            maxxArr[L[i]] += 1;
+            maxxArr[R[i+1]] += -1;
+        }
+        for (int i = 0; i < maxx; i++) {
+            freq += maxxArr[i];
+            maxxArr[i] = freq;
+        }
+        for (int i = 0; i < maxx; i++) {
+            if (maxxArr[i] > freq) {
+                freq = maxxArr[i];
+                res = i;
+            }
+        }
+        return res;
+    }
 
+    
 }
