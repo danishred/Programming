@@ -30,7 +30,11 @@ Output 4
 15 8 12 20 30
 Output 5
 */
-
+/*Testcase4
+2
+0 1
+4 4 
+Output 1*/
 //{ Driver Code Starts
 import java.io.*;
 import java.util.*;
@@ -119,21 +123,28 @@ class maximumOccuredInteger {
         }
         return res;
     }
+
     // Mine|Efficient using hint
     // Time Complexity:O(n+maxx)
     // Auxiliary Space:O(maxx)
     public static int maxOccured2(int L[], int R[], int n, int maxx) {
-        int maxxArr[] = new int[maxx+1];
+        // if maxx = 10 then maxxArr[] should be of 11 size as 11th index
+        // will store frequency of 10
+        // maxxArr[R[i] + 1] so 1 more index is required hence maxx+2
+        int maxxArr[] = new int[maxx + 2]; 
         int freq = 0, res = 0;
-        for (int i = 1; i < n + 1; i++) {
+        for (int i = 0; i < n; i++) {
             maxxArr[L[i]] += 1;
-            maxxArr[R[i+1]] += -1;
+            maxxArr[R[i] + 1] += -1;
         }
-        for (int i = 0; i < maxx; i++) {
+        // creating prefix sum array
+        for (int i = 0; i < maxx + 1; i++) {
             freq += maxxArr[i];
             maxxArr[i] = freq;
         }
-        for (int i = 0; i < maxx; i++) {
+        freq = 0;
+        // extracting min value element with max frequency
+        for (int i = 0; i < maxx + 1; i++) {
             if (maxxArr[i] > freq) {
                 freq = maxxArr[i];
                 res = i;
@@ -141,6 +152,4 @@ class maximumOccuredInteger {
         }
         return res;
     }
-
-    
 }
