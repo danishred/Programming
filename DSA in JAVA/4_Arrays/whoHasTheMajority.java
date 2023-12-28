@@ -6,31 +6,24 @@ then return the smaller element.
 Note:  We need to return the element, not its count. */
 
 /*Testcase1
-3
-2 1 3 
-5 3 9 
-Output 3*/
-/*Testcase2 
-4
-1 4 3 1 
-15 8 5 4 
+11
+1 1 2 2 3 3 4 4 4 4 5
+4 5
 Output 4
 */
-/*Testcase3
-5
-1 5 9 13 21
-15 8 12 20 30
-Output 5
+/*Testcase2 
+8
+1 2 3 4 5 6 7 8
+1 7
+Output 1
 */
-/*Testcase4
-2
-0 1
-4 4 
-Output 1*/
-//{ Driver Code Starts
-// Initial Template for Java
+/*Testcase3
+8
+5 22 29 12 32 69 1 75
+29 96
+Output 29
+ */
 
-import java.io.*;
 import java.util.*;
 
 class whoHasTheMajority {
@@ -48,15 +41,29 @@ class whoHasTheMajority {
         int y = sc.nextInt(); // Input y
 
         System.out.println(majorityWins(arr, n, x, y)); // The functions you complete
-
+        sc.close();
     }
-
     // } Driver Code Ends
-    // User function Temp
-    // Function to find element with more appearances between two elements in an
-    // array.
-    public static int majorityWins(int arr[], int n, int x, int y) {
-        return 1;
 
+    // Mine | Efficient
+    // Expected Time Complexity: O(N)
+    // Expected Auxiliary Space: O(1)
+    public static int majorityWins(int arr[], int n, int x, int y) {
+        int xCount = 0, yCount = 0;
+        // Counting frequency
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == x) {
+                xCount++;
+            } else if (arr[i] == y) {
+                yCount++;
+            }
+        }
+        // returning number with max freq or smallest number if freq is same
+        if (xCount == yCount) {
+            return Math.min(x, y);
+        } else if (xCount > yCount) {
+            return x;
+        } else
+            return y;
     }
 }

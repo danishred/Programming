@@ -131,7 +131,7 @@ class maximumOccuredInteger {
         // if maxx = 10 then maxxArr[] should be of 11 size as 11th index
         // will store frequency of 10
         // maxxArr[R[i] + 1] so 1 more index is required hence maxx+2
-        int maxxArr[] = new int[maxx + 2]; 
+        int maxxArr[] = new int[maxx + 2];
         int freq = 0, res = 0;
         for (int i = 0; i < n; i++) {
             maxxArr[L[i]] += 1;
