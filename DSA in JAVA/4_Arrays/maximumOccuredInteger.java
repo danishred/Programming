@@ -1,4 +1,9 @@
-/* Given n integer ranges, the task is to find the maximum occurring integer in these ranges. If more than one such integer exists, find the smallest one. The ranges are given as two arrays L[] and R[].  L[i] consists of starting point of range and R[i] consists of corresponding end point of the range.
+/* Description:-
+Given n integer ranges, the task is to find the maximum occurring integer in these ranges.
+If more than one such integer exists, find the smallest one.
+The ranges are given as two arrays L[] and R[].
+L[i] consists of starting point of range and R[i] consists of corresponding end point
+of the range.
 
 For example consider the following ranges.
 L[] = {2, 1, 3}, R[] = {5, 3, 9)
@@ -8,23 +13,18 @@ Ranges represented by above arrays are.
 [3, 9] = {3, 4, 5, 6, 7, 8, 9}
 The maximum occurred integer in these ranges is 3 */
 
-// Testcase1
-/*Input
+/*Testcase1
 3
 2 1 3 
 5 3 9 
 Output 3*/
-
-// Testcase2
-/*Input 
+/*Testcase2 
 4
 1 4 3 1 
 15 8 5 4 
 Output 4
 */
-
-// Testcase3
-/*Input 
+/*Testcase3
 5
 1 5 9 13 21
 15 8 12 20 30
