@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-import java.util.Arrays;
+// import java.util.Arrays;
 
 class IntArray {
     public static int[] input(BufferedReader br, int n) throws IOException {
@@ -34,8 +34,8 @@ class waveArray {
 
         int[] a = IntArray.input(br, n);
 
-        Solution obj = new Solution();
-        obj.convertToWave(n, a);
+        // Solution obj = new Solution();
+        Solution.convertToWave(n, a);
         StringBuffer sb = new StringBuffer("");
         for (int i : a) {
             sb.append(i + " ");

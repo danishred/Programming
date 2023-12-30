@@ -38,7 +38,7 @@ Output 1*/
 //{ Driver Code Starts
 import java.io.*;
 import java.util.*;
-import java.lang.*;
+// import java.lang.*;
 
 class maximumOccuredInteger {
 
