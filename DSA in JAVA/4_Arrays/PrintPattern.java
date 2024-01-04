@@ -63,5 +63,4 @@ class PrintPattern {
     }
 }
 // } Driver Code Ends
-
 // User function Template for Java

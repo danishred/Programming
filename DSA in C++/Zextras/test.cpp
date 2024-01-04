@@ -5,11 +5,7 @@ using namespace std;
 
 int main()
 {
-    int a[]={1,4,6,9,9};
-    int n = sizeof(a)/sizeof(int);
-    int ind = lower_bound(a,a+n,4)-a;
-    int inde = upper_bound(a,a+n,4)-a;
-    cout<<ind<<endl; // 1 
-    cout<<inde<<endl; // 2
-    return 0;
+    int arr[2]={1, 2};
+    cout << 0[arr] << ", " << 1[arr] << endl;
+
 }
