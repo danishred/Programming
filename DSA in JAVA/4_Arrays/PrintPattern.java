@@ -52,7 +52,7 @@ class PrintPattern {
 
     // Sir's
     static List<Integer> List = new ArrayList<Integer>();
-    public static List<Integer> pattern(int N){
+    public static List<Integer> pattern1(int N){
         // code here
         List.add(N);
         if(N<=0)
