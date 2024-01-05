@@ -4,69 +4,65 @@ import java.util.Scanner;
 /**
  * BinarySearchRecursive
  */
-/*
- * testcase1
- * 5
- * 20
- * 10 20 30 40 50
- * output
- * 1
- */
-/*
- * testcase2
- * 3
- * 10 20 30
- * 30
- * output
- * 2
- */
-/*
- * testcase3
- * 3
- * 10 20 30
- * 10
- * output
- * 0
- */
-/*
- * testcase4
- * 4
- * 10 20 30 40
- * 15
- * output
- * -1
- */
-/*
- * testcase5
- * 2
- * 10 20
- * 5
- * output
- * -1
- */
-/*
- * testcase6
- * 1
- * 15
- * 20
- * output
- * -1
- */
 
+/* testcase1
+5
+20
+10 20 30 40 50 
+ouput 
+1
+ */
+/* testcase2
+3
+30
+10 20 30
+output
+2 */
+/* testcase3
+3
+10
+10 20 30
+output
+0
+ */
+/* testcase4
+ 4
+ 15
+ 10 20 30 40
+ output
+ -1
+ */
+/* testcase5
+ 2
+ 5
+ 10 20
+ output
+ -1
+ */
+/* testcase6
+ 1
+ 20
+ 15
+ output
+ -
+ */
 public class BinarySearchRecursive {
-    static int mid = -1; // high declared in main func.
+    
 
     public static int SearchRecursive(int[] arr, int x, int low, int high) {
-        mid = (low + high) / 2;
+        // *if a variable is not passed either it should be gloabal or declared locally
+        int mid = (low + high) / 2;
+        // *Remeber to break only when low is higher than high
         if (low > high) {
             return -1;
-        }   
+        }
         if (arr[mid] == x) {
-            return x;
-        } else if (arr[mid] < x) {
-            return SearchRecursive(arr, x, mid+1, high);
+            return mid;
+        // *Remember mid+1 and mid -1 for low and high respectively
+        } else if (x > arr[mid]) {
+            return SearchRecursive(arr, x, mid + 1, high);
         } else {
-            return SearchRecursive(arr, x, low, low-1);
+            return SearchRecursive(arr, x, low, mid - 1);
         }
     }
 

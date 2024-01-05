@@ -1,10 +1,9 @@
-// Binray Search
+// Binray Search (ascending)
 
 /* testcase1
 6
 20
-10 20 30 40 50 60
-*/
+10 20 30 40 50 60 */
 /* testcase2
 3
 25
@@ -27,7 +26,8 @@
 10
 10 10
  */
-import java.util.Scanner;
+
+ import java.util.Scanner;
 
 public class BinarySearch {
 
@@ -37,7 +37,7 @@ public class BinarySearch {
             mid = (Lindex + Rindex) / 2;
             if (x == arr[mid])
                 return mid;
-            else if (x < arr[mid]) {
+            else if (x < arr[mid]) { //flippin x < arr[mid] to x > arr[mid] will make it descending search
                 Rindex = mid - 1;
             } else
                 Lindex = mid + 1;
