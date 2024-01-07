@@ -59,4 +59,21 @@ public class BinarySearch {
         input.close();
         System.out.println(Search(arr, x));
     }
+
+    static int findFloor(long arr[], int n, long x)
+    {
+        int mid = -1, low = 0, high = n-1;
+        while((high >= 0) || (low <= n-1)){
+            mid = (low + high)/2;
+            if(low > high){
+                return high;
+            }else if(x == arr[mid]){
+                return mid;
+            }else if(x > arr[mid]){ 
+                low = mid+1;
+            }else
+                high = mid-1;
+        }
+        return -1;
+    }
 }

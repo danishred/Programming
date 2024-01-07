@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -65,7 +66,7 @@ public class BinarySearchRecursive {
             return SearchRecursive(arr, x, low, mid - 1);
         }
     }
-
+    
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // Enter no. of elements of array (Sorted)
@@ -78,8 +79,10 @@ public class BinarySearchRecursive {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = input.nextInt();
         }
+        // int j = Arrays.binarySearch(arr, x); 
+        System.out.println(j + "Yeah");
         input.close();
-        System.out.println(SearchRecursive(arr, x, low, high));
+        // System.out.println(SearchRecursive(arr, x, low, high));
     }
 
 }
