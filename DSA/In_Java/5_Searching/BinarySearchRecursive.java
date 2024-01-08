@@ -1,5 +1,5 @@
 
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -80,9 +80,9 @@ public class BinarySearchRecursive {
             arr[i] = input.nextInt();
         }
         // int j = Arrays.binarySearch(arr, x); 
-        System.out.println(j + "Yeah");
+        // System.out.println(i + "Yeah");
         input.close();
-        // System.out.println(SearchRecursive(arr, x, low, high));
+        System.out.println(SearchRecursive(arr, x, low, high));
     }
 
 }
