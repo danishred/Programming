@@ -1,6 +1,8 @@
 
 // import java.util.Arrays;
 import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 /**
  * BinarySearchRecursive
@@ -48,7 +50,6 @@ output
  -
  */
 public class BinarySearchRecursive {
-    
 
     public static int SearchRecursive(int[] arr, int x, int low, int high) {
         // *if a variable is not passed either it should be gloabal or declared locally
@@ -59,14 +60,14 @@ public class BinarySearchRecursive {
         }
         if (arr[mid] == x) {
             return mid;
-        // *Remember mid+1 and mid -1 for low and high respectively
+            // *Remember mid+1 and mid -1 for low and high respectively
         } else if (x > arr[mid]) {
             return SearchRecursive(arr, x, mid + 1, high);
         } else {
             return SearchRecursive(arr, x, low, mid - 1);
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // Enter no. of elements of array (Sorted)
@@ -84,5 +85,34 @@ public class BinarySearchRecursive {
         input.close();
         System.out.println(SearchRecursive(arr, x, low, high));
     }
-
+    
 }
+
+class Solution
+{
+    //Function to find a continuous sub-array which adds up to a given number.
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
+        // Your code here
+        int curr = 0, firstindex = 0;
+        ArrayList<Integer>index = new ArrayList<>();
+        for (int i = 0; i < n; ++i){
+            curr += arr[i];
+            if(curr < s){
+                continue;
+            }
+            while(curr > s){
+                curr = curr - arr[firstindex];
+                ++firstindex;
+            }
+            if(curr == s && s != 0){
+                index.add(firstindex+1);
+                index.add(i+1);
+                return index;
+            }else
+                continue;
+        }
+        index.add(-1);
+        return index;
+    }
+}
+
