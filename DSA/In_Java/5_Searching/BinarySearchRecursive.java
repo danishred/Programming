@@ -87,32 +87,3 @@ public class BinarySearchRecursive {
     }
     
 }
-
-class Solution
-{
-    //Function to find a continuous sub-array which adds up to a given number.
-    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
-        // Your code here
-        int curr = 0, firstindex = 0;
-        ArrayList<Integer>index = new ArrayList<>();
-        for (int i = 0; i < n; ++i){
-            curr += arr[i];
-            if(curr < s){
-                continue;
-            }
-            while(curr > s){
-                curr = curr - arr[firstindex];
-                ++firstindex;
-            }
-            if(curr == s && s != 0){
-                index.add(firstindex+1);
-                index.add(i+1);
-                return index;
-            }else
-                continue;
-        }
-        index.add(-1);
-        return index;
-    }
-}
-
