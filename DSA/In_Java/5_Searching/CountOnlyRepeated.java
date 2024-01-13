@@ -22,7 +22,7 @@ class CountOnlyRepeated
              this.y = y;
          }
      }
-     public static Pair findRepeating(Long arr[],int n)
+     public Pair findRepeating(Long arr[],int n)
      {
       if(n==(arr[n-1]-arr[0]+1)) return new Pair(-1,-1);
        int l=0,h=n-1;
@@ -48,7 +48,7 @@ class CountOnlyRepeated
 		    Long arr[] = new Long[n];
 		    for(int i=0;i<n;i++)
 		    arr[i]=sc.nextLong();
-		    
+		    sc.close();
 		    CountOnlyRepeated.Pair p=new CountOnlyRepeated().findRepeating(arr,n);
             
             System.out.println(p.x +" "+ p.y ); 
